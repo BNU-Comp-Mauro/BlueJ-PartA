@@ -1,0 +1,28 @@
+LabClass co452 = new LabClass(3);
+Student Andre = new Student("Andre Santos", "21832192");
+Student Mauro = new Student("Mauro Nunes", "21815118");
+Student Alice = new Student("Alice Deodato", "21742921");
+co452.setInstructor("Nicholas Day");
+co452.setRoom("G100");
+co452.setTime("Tuesday 29th September 2020");
+Andre.addCredits(20);
+Andre.changeName("André Santos");
+Course course1 = new Course("Computing", "G400");
+co452.enrollStudent(Andre);
+co452.enrollStudent(Mauro);
+co452.enrollStudent(Alice);
+Course Computing = new Course("Computing", "G400");
+Andre.addCourse(Computing);
+Mauro.addCourse(Computing);
+Alice.addCourse(Computing);
+co452.printList();
+Lab class Tuesday 29th September 2020
+Instructor: Nicholas Day   Room: G100
+Class list:
+André Santos, student ID: 21832192, credits: 20, Course: Computing, Course code: G400
+
+Mauro Nunes, student ID: 21815118, credits: 0, Course: Computing, Course code: G400
+
+Alice Deodato, student ID: 21742921, credits: 0, Course: Computing, Course code: G400
+
+Number of students: 3

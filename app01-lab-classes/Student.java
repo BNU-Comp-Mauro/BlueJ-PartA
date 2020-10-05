@@ -6,6 +6,7 @@ import java.util.*;
  * 
  * @author Michael Kölling and David Barnes
  * @version 2016.02.29
+ * modified by Mauro Duarte Nunes
  */
 public class Student
 {
@@ -16,8 +17,10 @@ public class Student
     // the amount of credits for study taken so far
     private int credits;
     
+    private Course course;
+    
     /**
-     * Create a new student with a given name and ID number.
+     * Create a new student with a given name and ID number. 
      */
     public Student(String fullName, String studentID)
     {
@@ -66,7 +69,15 @@ public class Student
     {
         return credits;
     }
-
+    
+    /**
+     * Add a course to this Student. 
+     */
+    public void addCourse(Course newCourse)
+    {
+        this.course = newCourse;
+    }
+    
     /**
      * Return the login name of this student. The login name is a combination
      * of the first four characters of the student's name and the first three
@@ -78,10 +89,11 @@ public class Student
     }
     
     /**
-     * Print the student's name and ID number to the output terminal.
+     * Print the student's name, ID number, credits and course to the output terminal.
      */
     public void print()
     {
-        System.out.println(name + ", student ID: " + id + ", credits: " + credits);
+        System.out.print(name + ", student ID: " + id + ", credits: " + credits);
+        course.print();
     }
 }
