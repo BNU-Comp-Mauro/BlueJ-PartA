@@ -22,11 +22,14 @@ public class Ticket
         dateTime = new Date();
     }
 
+    /**
+     * Set the text for the print method.
+     */
     public void print()
     {
         System.out.print("Ticket to " + destination);
         System.out.print(": " + price + " pence.");
-        System.out.println(" Requested @ " + dateTime);
+        System.out.println(" Issued @ " + dateTime);
     }
-    
+
 }
