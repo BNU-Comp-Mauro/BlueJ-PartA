@@ -22,6 +22,10 @@ public class TicketMachine
     // The total amount of money collected by this machine.
     private int total;
 
+    private Coin coins;
+
+    private Ticket ticket;
+
     /**
      * Create a machine that issues tickets of the given price.
      */
@@ -33,7 +37,7 @@ public class TicketMachine
     }
 
     /**
-     * @Return The price of a ticket.
+     * Return The price of a ticket.
      */
     public int getPrice()
     {
@@ -64,6 +68,38 @@ public class TicketMachine
             System.out.println("Use a positive amount rather than: " +
                 amount);
         }
+    }
+
+    /**
+     * Add 10p coins to the balance.
+     */
+    public void insert10()
+    {
+        balance = balance + 10;
+    }
+    
+    /**
+     * Add 20p coins to the balance.
+     */
+    public void insert20()
+    {
+        balance = balance + 20;
+    }
+    
+    /**
+     * Add £1 coins to the balance.
+     */
+    public void insert100()
+    {
+        balance = balance + 100;
+    }
+    
+    /**
+     * Add £2 coins to the balance.
+     */
+    public void insert200()
+    {
+        balance = balance + 200;
     }
 
     /**

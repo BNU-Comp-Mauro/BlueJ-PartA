@@ -1,9 +1,10 @@
 
 /**
- * Write a description of class Coin here.
+ * Store the possible coin values to be inserted by the user.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * Mauro Duarte Nunes
+ * 21815118
+ * 13/10/2020
  */
 public enum Coin
 {
