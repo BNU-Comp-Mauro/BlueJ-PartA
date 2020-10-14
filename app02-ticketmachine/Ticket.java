@@ -1,4 +1,4 @@
-
+import java.util.Date;
 /**
  * Write a description of class Ticket here.
  *
@@ -9,9 +9,9 @@
 public class Ticket
 {
     private String destination;
-    private String date;
+    private Date dateTime;
     private int price;
-    
+
     /**
      * Set values for the fields.
      */
@@ -19,6 +19,13 @@ public class Ticket
     {
         this.price = price;
         this.destination = destination;
+        dateTime = new Date();
     }
 
+    public void print()
+    {
+        System.out.print("Ticket to" + destination);
+        System.out.print(" " + price + " pence");
+        System.out.println("issued @ " + dateTime);
+    }
 }
