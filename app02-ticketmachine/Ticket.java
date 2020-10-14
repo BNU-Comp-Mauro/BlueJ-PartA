@@ -23,7 +23,7 @@ public class Ticket
     }
 
     /**
-     * Set the text for the print method.
+     * Set the text for the print method for the 3 different destinations.
      */
     public void print()
     {

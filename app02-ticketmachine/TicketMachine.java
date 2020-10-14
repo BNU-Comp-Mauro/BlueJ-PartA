@@ -64,7 +64,7 @@ public class TicketMachine
     /**
      * Add 10p coins to the balance.
      */
-    public int insert10()
+    public int insert10Pence()
     {
         int amountEntered;
         amountEntered = 10;
@@ -75,7 +75,7 @@ public class TicketMachine
     /**
      * Add 20p coins to the balance.
      */
-    public int insert20()
+    public int insert20Pence()
     {
         int amountEntered;
         amountEntered = 20;
@@ -86,7 +86,7 @@ public class TicketMachine
     /**
      * Add £1 coins to the balance.
      */
-    public int insert100()
+    public int insert100Pence()
     {
         int amountEntered;
         amountEntered = 100;
@@ -97,7 +97,7 @@ public class TicketMachine
     /**
      * Add £2 coins to the balance.
      */
-    public int insert200()
+    public int insert200Pence()
     {
         int amountEntered;
         amountEntered = 200;
@@ -128,7 +128,7 @@ public class TicketMachine
         {
             System.out.println("You must insert at least: " +
                 (220 - balance) + " more cents.");
-
+            System.out.println();
         }
     }
 
@@ -155,7 +155,7 @@ public class TicketMachine
         {
             System.out.println("You must insert at least: " +
                 (300 - balance) + " more cents.");
-
+            System.out.println();
         }
     }
     
@@ -182,7 +182,7 @@ public class TicketMachine
         {
             System.out.println("You must insert at least: " +
                 (330 - balance) + " more cents.");
-
+            System.out.println();
         }
     }
     
