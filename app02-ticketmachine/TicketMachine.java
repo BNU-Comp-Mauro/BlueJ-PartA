@@ -73,33 +73,45 @@ public class TicketMachine
     /**
      * Add 10p coins to the balance.
      */
-    public void insert10()
+    public int insert10()
     {
+        int amountEntered;
+        amountEntered = 10;
         balance = balance + 10;
+        return amountEntered;
     }
     
     /**
      * Add 20p coins to the balance.
      */
-    public void insert20()
+    public int insert20()
     {
+        int amountEntered;
+        amountEntered = 20;
         balance = balance + 20;
+        return amountEntered;
     }
     
     /**
      * Add £1 coins to the balance.
      */
-    public void insert100()
+    public int insert100()
     {
+        int amountEntered;
+        amountEntered = 100;
         balance = balance + 100;
+        return amountEntered;
     }
     
     /**
      * Add £2 coins to the balance.
      */
-    public void insert200()
+    public int insert200()
     {
+        int amountEntered;
+        amountEntered = 20;
         balance = balance + 200;
+        return amountEntered;
     }
 
     /**
