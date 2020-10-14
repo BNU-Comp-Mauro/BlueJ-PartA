@@ -21,6 +21,8 @@ public class TicketMachine
     private int total;
 
     private Ticket aylesburyTicket;
+    private Ticket amershamTicket;
+    private Ticket highWycombeTicket;
     /**
      * Create a machine that issues tickets of the given price.
      */
@@ -30,8 +32,9 @@ public class TicketMachine
         total = 0;
 
         aylesburyTicket = new Ticket("Aylesbury", 220);
+        amershamTicket = new Ticket("Amersham", 300);
+        highWycombeTicket = new Ticket("High Wycombe", 330);
     }
-
 
     /**
      * Return The amount of money already inserted for the
@@ -43,8 +46,7 @@ public class TicketMachine
     }
 
     /**
-     * Receive an amount of money from a customer.
-     * Check that the amount is sensible.
+     * This simulates a tap and pay way of paying.
      */
     public void insertMoney(int amount)
     {
@@ -110,8 +112,7 @@ public class TicketMachine
      */
     public void printTicket()
     {
-        int price = 500;
-        balance = 500;
+        int price = 500; // CHANGE THIS LATER PLEASE
         if(balance >= price)
         {
             // Simulate the printing of a ticket.
@@ -144,5 +145,31 @@ public class TicketMachine
         amountToRefund = balance;
         balance = 0;
         return amountToRefund;
+    }
+
+    /**
+     * This method will print out all available tickets.
+     */
+    public void printAllTickets()
+    {
+        printHeading();
+        
+        System.out.println();
+        System.out.println("Available tickets:");
+        System.out.println();
+        aylesburyTicket.print();
+        System.out.println();
+    }
+
+    /**
+     * This method prints the ticket heading;
+     */
+    public void printHeading()
+    {
+        System.out.println("##################");
+        System.out.println("# The BlueJ Line");
+        System.out.println("# by Derek");
+        System.out.println("##################");
+        System.out.println();
     }
 }
