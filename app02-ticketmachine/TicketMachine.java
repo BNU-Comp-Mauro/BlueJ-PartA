@@ -22,11 +22,6 @@ public class TicketMachine
     // The total amount of money collected by this machine.
     private int total;
     
-    private Coin coins;
-    private Aylesbury aylesbury;
-    private Amersham amersham;
-    private HighWycombe highwycombe;
-
     /**
      * Create a machine that issues tickets of the given price.
      */
