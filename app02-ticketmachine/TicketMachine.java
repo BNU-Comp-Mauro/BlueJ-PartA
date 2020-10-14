@@ -109,7 +109,7 @@ public class TicketMachine
     public int insert200()
     {
         int amountEntered;
-        amountEntered = 20;
+        amountEntered = 200;
         balance = balance + 200;
         return amountEntered;
     }
