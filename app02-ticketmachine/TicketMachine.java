@@ -154,7 +154,6 @@ public class TicketMachine
     {
         printHeading();
 
-        System.out.println();
         System.out.println("Available tickets:");
         System.out.println();
         aylesburyTicket.print();

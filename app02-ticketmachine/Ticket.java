@@ -26,7 +26,7 @@ public class Ticket
     {
         System.out.print("Ticket to " + destination);
         System.out.print(": " + price + " pence.");
-        System.out.println(" Issued @ " + dateTime);
+        System.out.println(" Requested @ " + dateTime);
     }
     
 }
