@@ -153,11 +153,15 @@ public class TicketMachine
     public void printAllTickets()
     {
         printHeading();
-        
+
         System.out.println();
         System.out.println("Available tickets:");
         System.out.println();
         aylesburyTicket.print();
+        System.out.println();
+        amershamTicket.print();
+        System.out.println();
+        highWycombeTicket.print();
         System.out.println();
     }
 
@@ -168,7 +172,7 @@ public class TicketMachine
     {
         System.out.println("##################");
         System.out.println("# The BlueJ Line");
-        System.out.println("# by Derek");
+        System.out.println("# by Mauro");
         System.out.println("##################");
         System.out.println();
     }
