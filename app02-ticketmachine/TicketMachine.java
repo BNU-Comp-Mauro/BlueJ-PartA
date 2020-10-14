@@ -21,10 +21,11 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
-
+    
     private Coin coins;
-
-    private Ticket ticket;
+    private Aylesbury aylesbury;
+    private Amersham amersham;
+    private HighWycombe highwycombe;
 
     /**
      * Create a machine that issues tickets of the given price.
@@ -80,7 +81,7 @@ public class TicketMachine
         balance = balance + 10;
         return amountEntered;
     }
-    
+
     /**
      * Add 20p coins to the balance.
      */
@@ -91,7 +92,7 @@ public class TicketMachine
         balance = balance + 20;
         return amountEntered;
     }
-    
+
     /**
      * Add £1 coins to the balance.
      */
@@ -102,7 +103,7 @@ public class TicketMachine
         balance = balance + 100;
         return amountEntered;
     }
-    
+
     /**
      * Add £2 coins to the balance.
      */
@@ -121,7 +122,7 @@ public class TicketMachine
      */
     public void printTicket()
     {
-        if(balance >= price) 
+        if(balance >= price)
         {
             // Simulate the printing of a ticket.
             System.out.println("##################");
