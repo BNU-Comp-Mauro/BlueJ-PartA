@@ -23,6 +23,8 @@ public class TicketMachine
     private Ticket aylesburyTicket;
     private Ticket amershamTicket;
     private Ticket highWycombeTicket;
+    private Ticket selectedTicket;
+
     /**
      * Create a machine that issues tickets of the given price.
      */
@@ -36,24 +38,6 @@ public class TicketMachine
         highWycombeTicket = new Ticket("High Wycombe", 330);
     }
 
-    /**
-     * Return the 
-     */
-    public Ticket getAylesburyTicket()
-    {
-        return aylesburyTicket;
-    }
-    
-    public Ticket getAmershamTicket()
-    {
-        return amershamTicket;
-    }
-    
-    public Ticket getHighWycombeTicket()
-    {
-        return highWycombeTicket;
-    }
-    
     /**
      * Return The amount of money already inserted for the
      * next ticket.
@@ -119,83 +103,54 @@ public class TicketMachine
         return amountEntered;
     }
 
-    /**
-     * Print a ticket to Aylesbury if enough money has been inserted, and
-     * reduce the current balance by the ticket price. Print
-     * an error message if more money is required.
-     */
-    public void printAylesburyTicket()
+    public void selectTicket(String destination)
     {
-        if(balance >= 220)
+        destination = destination.toLowerCase();
+        if(destination.startsWith("ayl"))
         {
-            // Simulate the printing of a ticket.
-            printHeading();
-
-            aylesburyTicket.print();
-
-            // Update the total collected with the price.
-            total = total + 220;
-            // Reduce the balance by the price.
-            balance = balance - 220;
+            selectedTicket = aylesburyTicket;
+            printTicket();
         }
-        else 
+        else if(destination.startsWith("ame"))
         {
-            System.out.println("You must insert at least: " +
-                (220 - balance) + " more cents.");
-            System.out.println();
+            selectedTicket = amershamTicket;
+            printTicket();
+        }
+        else if(destination.startsWith("hig"))
+        {
+            selectedTicket = highWycombeTicket;
+            printTicket();
+        }
+        else
+        {
+            System.out.println("You must enter a valid destination");
+            printAllTickets();
         }
     }
 
     /**
-     * Print a ticket to Aylesbury if enough money has been inserted, and
+     * Print a ticket if enough money has been inserted, and
      * reduce the current balance by the ticket price. Print
      * an error message if more money is required.
      */
-    public void printAmershamTicket()
+    private void printTicket()
     {
-        if(balance >= 300)
+        if(balance >= selectedTicket.getPrice())
         {
             // Simulate the printing of a ticket.
             printHeading();
 
-            amershamTicket.print();
+            selectedTicket.print();
 
             // Update the total collected with the price.
-            total = total + 300;
+            total = total + selectedTicket.getPrice();
             // Reduce the balance by the price.
-            balance = balance - 300;
+            balance = balance - selectedTicket.getPrice();
         }
         else 
         {
             System.out.println("You must insert at least: " +
-                (300 - balance) + " more cents.");
-            System.out.println();
-        }
-    }
-
-    /**
-     * Print a ticket to Aylesbury if enough money has been inserted, and
-     * reduce the current balance by the ticket price. Print
-     * an error message if more money is required.
-     */
-    public void printHighWycombeTicket()
-    {
-        if(balance >= 330)
-        {
-            // Simulate the printing of a ticket.
-            printHeading();
-
-            highWycombeTicket.print();
-
-            // Update the total collected with the price.
-            total = total + 330;
-            // Reduce the balance by the price.
-            balance = balance - 330;
-        }
-        else 
-        {
-            System.out.println("You must insert at least: " +
-                (330 - balance) + " more cents.");
+                (selectedTicket.getPrice() - balance) + " more cents.");
             System.out.println();
         }
     }
@@ -220,11 +175,8 @@ public class TicketMachine
         printHeading();
 
         System.out.println("Available tickets:");
-        System.out.println();
         aylesburyTicket.print();
-        System.out.println();
         amershamTicket.print();
-        System.out.println();
         highWycombeTicket.print();
         System.out.println();
     }
@@ -232,7 +184,7 @@ public class TicketMachine
     /**
      * This method prints the ticket heading;
      */
-    public void printHeading()
+    private void printHeading()
     {
         System.out.println("##################");
         System.out.println("# The BlueJ Line");

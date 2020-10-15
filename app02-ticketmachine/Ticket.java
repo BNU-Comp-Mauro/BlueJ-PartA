@@ -22,14 +22,21 @@ public class Ticket
         dateTime = new Date();
     }
 
+    public int getPrice()
+    {
+        return price;
+    }
+    
     /**
      * Set the text for the print method for the 3 different destinations.
      */
     public void print()
     {
+        System.out.println();
         System.out.print("Ticket to " + destination);
         System.out.print(": " + price + " pence.");
         System.out.println(" Issued @ " + dateTime);
+        System.out.println();
     }
-
+    
 }
