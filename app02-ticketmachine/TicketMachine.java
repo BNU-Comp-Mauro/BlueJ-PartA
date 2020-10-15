@@ -37,6 +37,24 @@ public class TicketMachine
     }
 
     /**
+     * Return the 
+     */
+    public Ticket getAylesburyTicket()
+    {
+        return aylesburyTicket;
+    }
+    
+    public Ticket getAmershamTicket()
+    {
+        return amershamTicket;
+    }
+    
+    public Ticket getHighWycombeTicket()
+    {
+        return highWycombeTicket;
+    }
+    
+    /**
      * Return The amount of money already inserted for the
      * next ticket.
      */
@@ -66,9 +84,8 @@ public class TicketMachine
      */
     public int insert10Pence()
     {
-        int amountEntered;
-        amountEntered = 10;
-        balance = balance + 10;
+        int amountEntered = 10;
+        balance = balance + amountEntered;
         return amountEntered;
     }
 
@@ -77,9 +94,8 @@ public class TicketMachine
      */
     public int insert20Pence()
     {
-        int amountEntered;
-        amountEntered = 20;
-        balance = balance + 20;
+        int amountEntered = 20;
+        balance = balance + amountEntered;
         return amountEntered;
     }
 
@@ -88,9 +104,8 @@ public class TicketMachine
      */
     public int insert100Pence()
     {
-        int amountEntered;
-        amountEntered = 100;
-        balance = balance + 100;
+        int amountEntered = 100;
+        balance = balance + amountEntered;
         return amountEntered;
     }
 
@@ -99,9 +114,8 @@ public class TicketMachine
      */
     public int insert200Pence()
     {
-        int amountEntered;
-        amountEntered = 200;
-        balance = balance + 200;
+        int amountEntered = 200;
+        balance = balance + amountEntered;
         return amountEntered;
     }
 
@@ -116,7 +130,7 @@ public class TicketMachine
         {
             // Simulate the printing of a ticket.
             printHeading();
-            
+
             aylesburyTicket.print();
 
             // Update the total collected with the price.
@@ -143,7 +157,7 @@ public class TicketMachine
         {
             // Simulate the printing of a ticket.
             printHeading();
-            
+
             amershamTicket.print();
 
             // Update the total collected with the price.
@@ -158,7 +172,7 @@ public class TicketMachine
             System.out.println();
         }
     }
-    
+
     /**
      * Print a ticket to Aylesbury if enough money has been inserted, and
      * reduce the current balance by the ticket price. Print
@@ -170,7 +184,7 @@ public class TicketMachine
         {
             // Simulate the printing of a ticket.
             printHeading();
-            
+
             highWycombeTicket.print();
 
             // Update the total collected with the price.
@@ -185,7 +199,7 @@ public class TicketMachine
             System.out.println();
         }
     }
-    
+
     /**
      * Return the money in the balance.
      * The balance is cleared.
