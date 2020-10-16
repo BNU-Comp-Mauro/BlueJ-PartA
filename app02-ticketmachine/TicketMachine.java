@@ -66,41 +66,45 @@ public class TicketMachine
     /**
      * Add 10p coins to the balance.
      */
-    public int insert10Pence()
+    public void insert10Pence()
     {
-        int amountEntered = 10;
-        balance = balance + amountEntered;
-        return amountEntered;
+        balance = balance + 10;
+        System.out.println("Amount entered: 10 pence");
+        System.out.println("Balance available: " + balance + " pence");
+        System.out.println();
     }
 
     /**
      * Add 20p coins to the balance.
      */
-    public int insert20Pence()
+    public void insert20Pence()
     {
-        int amountEntered = 20;
-        balance = balance + amountEntered;
-        return amountEntered;
+        balance = balance + 20;
+        System.out.println("Amount entered: 20 pence");
+        System.out.println("Balance available: " + balance + " pence");
+        System.out.println();
     }
 
     /**
      * Add £1 coins to the balance.
      */
-    public int insert100Pence()
+    public void insert100Pence()
     {
-        int amountEntered = 100;
-        balance = balance + amountEntered;
-        return amountEntered;
+        balance = balance + 100;
+        System.out.println("Amount entered: 100 pence");
+        System.out.println("Balance available: " + balance + " pence");
+        System.out.println();
     }
 
     /**
      * Add £2 coins to the balance.
      */
-    public int insert200Pence()
+    public void insert200Pence()
     {
-        int amountEntered = 200;
-        balance = balance + amountEntered;
-        return amountEntered;
+        balance = balance + 200;
+        System.out.println("Amount entered: 200 pence");
+        System.out.println("Balance available: " + balance + " pence");
+        System.out.println();
     }
 
     public void selectTicket(String destination)
@@ -123,7 +127,8 @@ public class TicketMachine
         }
         else
         {
-            System.out.println("You must enter a valid destination");
+            System.out.println("You must enter one of these destinations:");
+            System.out.println();
             printAllTickets();
         }
     }
@@ -149,7 +154,7 @@ public class TicketMachine
         }
         else 
         {
-            System.out.println("You must insert at least: " +
+            System.out.println("You must insert at least " +
                 (selectedTicket.getPrice() - balance) + " more cents.");
             System.out.println();
         }
@@ -173,7 +178,8 @@ public class TicketMachine
     public void printAllTickets()
     {
         printHeading();
-
+        
+        System.out.println();
         System.out.println("Available tickets:");
         aylesburyTicket.print();
         amershamTicket.print();
@@ -190,6 +196,5 @@ public class TicketMachine
         System.out.println("# The BlueJ Line");
         System.out.println("# by Mauro");
         System.out.println("##################");
-        System.out.println();
     }
 }
