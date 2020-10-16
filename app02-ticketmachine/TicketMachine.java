@@ -48,7 +48,7 @@ public class TicketMachine
     }
 
     /**
-     * This simulates a tap and pay way of paying.
+     * Simulate inserting an amount at once into the machine.
      */
     public void insertMoney(int amount)
     {
@@ -64,7 +64,7 @@ public class TicketMachine
     }
 
     /**
-     * Add 10p coins to the balance.
+     * Add 10 pence coins to the balance.
      */
     public void insert10Pence()
     {
@@ -75,7 +75,7 @@ public class TicketMachine
     }
 
     /**
-     * Add 20p coins to the balance.
+     * Add 20 pence coins to the balance.
      */
     public void insert20Pence()
     {
@@ -86,7 +86,7 @@ public class TicketMachine
     }
 
     /**
-     * Add £1 coins to the balance.
+     * Add 100 pence coins to the balance.
      */
     public void insert100Pence()
     {
@@ -97,7 +97,7 @@ public class TicketMachine
     }
 
     /**
-     * Add £2 coins to the balance.
+     * Add 200 pence coins to the balance.
      */
     public void insert200Pence()
     {
@@ -107,6 +107,11 @@ public class TicketMachine
         System.out.println();
     }
 
+    /**
+     * This method allows the user to select one of the tickets and have it
+     * printed in the terminal. If the ticket does not exist, print the
+     * available tickets.
+     */
     public void selectTicket(String destination)
     {
         destination = destination.toLowerCase();
@@ -188,7 +193,8 @@ public class TicketMachine
     }
 
     /**
-     * This method prints the ticket heading;
+     * This print method is used on the heading of all the
+     * tickets.
      */
     private void printHeading()
     {
