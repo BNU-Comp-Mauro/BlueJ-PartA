@@ -22,4 +22,12 @@ public class Module
         this.moduleCode = moduleCode;
         this.percentageMark = percentageMark;
     }
+    
+    /**
+     * Get the course's percentage mark.
+     */
+    public int getPercentageMark()
+    {
+        return percentageMark;
+    }
 }
