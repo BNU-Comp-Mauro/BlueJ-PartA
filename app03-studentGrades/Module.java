@@ -24,7 +24,23 @@ public class Module
     }
     
     /**
-     * Get the course's percentage mark.
+     * Get the module's title.
+     */
+    public String getTitle()
+    {
+        return title;
+    }
+    
+    /**
+     * Get the module's code.
+     */
+    public String getModuleCode()
+    {
+        return moduleCode;
+    }
+    
+    /**
+     * Get the module's percentage mark.
      */
     public int getPercentageMark()
     {

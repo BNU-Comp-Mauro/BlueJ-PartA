@@ -25,28 +25,20 @@ public class Course
     }
 
     /**
-     * Set the course's title.
-     */
-    public void setTitle(String courseTitle)
-    {
-        title  = courseTitle;
-    }
-
-    /**
-     * Set the course's code.
-     */
-    public void setCode(String courseCode)
-    {
-        code = courseCode;
-    }
-
-    /**
      * Print the course details.
      */
     public void print()
     {
         System.out.println(", Course: " + title + ", Course code: " + code +
         "\n");
+    }
+    
+    /**
+     * Add a module to a course.
+     */
+    public void addModule(Module newModule)
+    {
+        this.module = newModule;
     }
 }
 
