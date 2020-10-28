@@ -39,5 +39,19 @@ public class Module
         this.percentageMark = percentageMark;
         System.out.println("Current " + title + " (" + moduleCode + ") " + 
         "mark: " + percentageMark);
+        System.out.println();
+    }
+    
+    /**
+     * Print the module's details.
+     */
+    public void printModuleDetails()
+    {
+        System.out.println("Module details:");
+        System.out.println();
+        System.out.println("Title: " + title);
+        System.out.println("Code: " + moduleCode);
+        System.out.println("Percentage mark: " + percentageMark);
+        System.out.println();
     }
 }
