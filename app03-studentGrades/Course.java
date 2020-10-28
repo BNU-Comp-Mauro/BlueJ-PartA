@@ -25,8 +25,7 @@ public class Course
     }
 
     /**
-    /**
-     * Set the title of this Course.
+     * Set the course's title.
      */
     public void setTitle(String courseTitle)
     {
@@ -34,7 +33,7 @@ public class Course
     }
 
     /**
-     * Set the code for this Course.
+     * Set the course's code.
      */
     public void setCode(String courseCode)
     {
@@ -42,7 +41,7 @@ public class Course
     }
 
     /**
-     * Print the course details
+     * Print the course details.
      */
     public void print()
     {

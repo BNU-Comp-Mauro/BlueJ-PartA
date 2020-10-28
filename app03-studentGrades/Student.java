@@ -9,11 +9,10 @@ import java.util.*;
  */
 public class Student
 {
-    // the student's full name
     private String name;
-    // the student ID
+
     private String id;
-    // the amount of credits for study taken so far
+    
     private int credits;
 
     public Course course;
@@ -29,7 +28,7 @@ public class Student
     }
 
     /**
-     * Return the full name of this student.
+     * Return the student's full name.
      */
     public String getName()
     {
@@ -37,7 +36,7 @@ public class Student
     }
 
     /**
-     * Set a new name for this student.
+     * Set a student's new name.
      */
     public void changeName(String replacementName)
     {
@@ -45,7 +44,7 @@ public class Student
     }
 
     /**
-     * Return the student ID of this student.
+     * Return a student's ID.
      */
     public String getStudentID()
     {
@@ -53,7 +52,7 @@ public class Student
     }
 
     /**
-     * Add some credit points to the student's accumulated credits.
+     * Add credit points to the student's accumulated credits.
      */
     public void addCredits(int additionalPoints)
     {
@@ -83,6 +82,7 @@ public class Student
      */
     public void print()
     {
-        System.out.println(name + ", student ID: " + id + ", credits: " + credits);
+        System.out.println(name + ", student ID: " + id + ", credits: "
+        + credits);
     }
 }
