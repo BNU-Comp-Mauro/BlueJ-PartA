@@ -31,22 +31,6 @@ public class StockManager
     }
 
     /**
-     * Receive a delivery of a particular product.
-     * Increase the quantity of the product by the given amount.
-     * @param id The ID of the product.
-     * @param amount The amount to increase the quantity by.
-     */
-    public void deliverProduct(int id, int amount)
-    {
-        Product product = findProduct(id);
-        
-        if(product!=null)
-            product.deliver(amount);
-        else
-            System.out.println("Invalid Product ID: " + id);
-    }
-
-    /**
      * Try to find a product in the stock with the given id.
      * @return The identified product, or null if there is none
      * with a matching ID.
@@ -60,7 +44,7 @@ public class StockManager
                 return product;
             }
         }
-        
+
         return null;
     }
 
@@ -77,6 +61,37 @@ public class StockManager
     }
 
     /**
+     * Receive a delivery of a particular product.
+     * Increase the quantity of the product by the given amount.
+     * @param id The ID of the product.
+     * @param amount The amount to increase the quantity by.
+     */
+    public void deliverProduct(int id, int amount)
+    {
+        Product product = findProduct(id);
+
+        if(product != null)
+            product.deliver(amount);
+        else
+            System.out.println("Invalid Product ID: " + id);
+    }
+
+    /**
+     * Print details of the given product. If found,
+     * its name and stock quantity will be shown.
+     * @param id The ID of the product to look for.
+     */
+    public void printProduct(int id)
+    {
+        Product product = findProduct(id);
+
+        if(product != null) 
+        {
+            System.out.println(product.toString());
+        }
+    }
+
+    /**
      * Print details of all the products.
      */
     public void printAllProducts()
@@ -89,23 +104,10 @@ public class StockManager
         {
             System.out.println(product);
         }
- 
+
         System.out.println();
     }
 
-    /**
-     * Print alert for items low on stock.
-     */
-    private Product printLowStockProducts(int quantity, int id, String name)
-    {
-        if(quantity > 0 && quantity <=2)
-        {
-            System.out.println("The following item is low on stock:");
-            System.out.println(id + ", " + name + ", quantity:" + quantity);
-        }
-        return null;
-    }
-    
     /**
      * Sell one of the given item.
      * Show the before and after status of the product.
@@ -114,17 +116,20 @@ public class StockManager
     public void sellProduct(int id, int quantity)
     {
         Product product = findProduct(id);
-        
+
         if(product != null) 
         {
+            if(quantity > product.getQuantity()) 
+                quantity = product.getQuantity();
+
             printProduct(id);
+
             for(int count = 0; count <= quantity; count++)
             {
                 product.sellOne();
             }
-            product.sellOne();
+
             printProduct(id);
         }
-    }
+    }    
 }
-
