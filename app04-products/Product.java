@@ -30,7 +30,7 @@ public class Product
     }
 
     /**
-     * @return The product's id.
+     * Return The product's id.
      */
     public int getID()
     {
@@ -65,9 +65,9 @@ public class Product
      * Restock with the given amount of this product.
      * The current quantity is incremented by the given amount.
      * @param amount The number of new items added to the stock.
-     *               This must be greater than zero.
+     * This must be greater than zero.
      */
-    public void increaseQuantity(int amount)
+    public void deliver(int amount)
     {
         if(amount > 0) 
         {
