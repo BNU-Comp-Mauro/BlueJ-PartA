@@ -105,5 +105,26 @@ public class StockManager
         }
         return null;
     }
+    
+    /**
+     * Sell one of the given item.
+     * Show the before and after status of the product.
+     * @param id The ID of the product being sold.
+     */
+    public void sellProduct(int id, int quantity)
+    {
+        Product product = findProduct(id);
+        
+        if(product != null) 
+        {
+            printProduct(id);
+            for(int count = 0; count <= quantity; count++)
+            {
+                product.sellOne();
+            }
+            product.sellOne();
+            printProduct(id);
+        }
+    }
 }
 

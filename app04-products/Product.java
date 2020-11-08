@@ -67,7 +67,7 @@ public class Product
      * @param amount The number of new items added to the stock.
      *               This must be greater than zero.
      */
-    public void deliver(int amount)
+    public void increaseQuantity(int amount)
     {
         if(amount > 0) 
         {
@@ -76,7 +76,7 @@ public class Product
         else 
         {
             System.out.println("Attempt to restock " + name +
-                " with a non-positive amount: " + amount);
+                               " with a non-positive amount: " + amount);
         }
     }
 
