@@ -4,8 +4,9 @@ import java.util.ArrayList;
  * Manage the stock in a business.
  * The stock is described by zero or more Products.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Modified by Mauro Duarte Nunes
+ * 21815118
+ * 08/11/2020
  */
 public class StockManager
 {
@@ -28,7 +29,7 @@ public class StockManager
     {
         stock.add(item);
     }
-    
+
     /**
      * Receive a delivery of a particular product.
      * Increase the quantity of the product by the given amount.
@@ -37,18 +38,27 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        amount += amount;
     }
-    
+
     /**
      * Try to find a product in the stock with the given id.
      * @return The identified product, or null if there is none
-     *         with a matching ID.
+     * with a matching ID.
      */
     public Product findProduct(int id)
     {
+        for(Product product : stock)
+        {
+            if(product.getID() == id)
+            {
+                return product;
+            }
+        }
+        
         return null;
     }
-    
+
     /**
      * Locate a product with the given ID, and return how
      * many of this item are in stock. If the ID does not
@@ -66,5 +76,29 @@ public class StockManager
      */
     public void printProductDetails()
     {
+        System.out.println("Mauro's Stock List");
+        System.out.println("===================");
+        System.out.println();
+
+        for(Product product : stock)
+        {
+            System.out.println(product);
+        }
+ 
+        System.out.println();
+    }
+
+    /**
+     * Print alert for items low on stock.
+     */
+    private Product printLowStockProducts(int quantity, int id, String name)
+    {
+        if(quantity > 0 && quantity <=2)
+        {
+            System.out.println("The following item is low on stock:");
+            System.out.println(id + ", " + name + ", quantity:" + quantity);
+        }
+        return null;
     }
 }
+
