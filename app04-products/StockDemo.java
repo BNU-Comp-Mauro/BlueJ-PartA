@@ -26,6 +26,7 @@ public class StockDemo
     {
         this.manager = manager;
         randomGenerator = new Random();
+        
         manager.addProduct(new Product(101, "Tesla Model S"));
         manager.addProduct(new Product(102, "Tesla Model 3"));
         manager.addProduct(new Product(103, "Tesla Model X"));
@@ -46,6 +47,8 @@ public class StockDemo
     {
         manager.printAllProducts();
         demoDeliverProducts();
+        manager.printAllProducts();
+        demoSellProducts();
         manager.printAllProducts();
     }
     
