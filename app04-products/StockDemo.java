@@ -1,3 +1,5 @@
+
+
 /**
  * Demonstrate the StockManager and Product classes.
  * The demonstration becomes properly functional as
@@ -5,6 +7,9 @@
  * 
  * @author David J. Barnes and Michael Kölling.
  * @version 2016.02.29
+ * Modified by Mauro Duarte Nunes
+ * 21815118
+ * 08/11/2020
  */
 public class StockDemo
 {
@@ -15,12 +20,20 @@ public class StockDemo
      * Create a StockManager and populate it with a few
      * sample products.
      */
-    public StockDemo()
+    public StockDemo(StockManager manager)
     {
-        manager = new StockManager();
-        manager.addProduct(new Product(132, "Clock Radio"));
-        manager.addProduct(new Product(37,  "Mobile Phone"));
-        manager.addProduct(new Product(23,  "Microwave Oven"));
+        this.manager = manager;
+        
+        manager.addProduct(new Product(101, "Tesla Model S"));
+        manager.addProduct(new Product(102, "Tesla Model 3"));
+        manager.addProduct(new Product(103, "Tesla Model X"));
+        manager.addProduct(new Product(104, "Tesla Model Y"));
+        manager.addProduct(new Product(105, "Ford Fiesta"));
+        manager.addProduct(new Product(106, "Ford Focus"));
+        manager.addProduct(new Product(107, "Opel Astra"));
+        manager.addProduct(new Product(108, "Skoda Otavia"));
+        manager.addProduct(new Product(109, "Citroen C4"));
+        manager.addProduct(new Product(110, "Porsche Panamera"));
     }
     
     /**

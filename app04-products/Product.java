@@ -3,6 +3,9 @@
  * 
  * @author David J. Barnes and Michael Kölling.
  * @version 2016.02.29
+ * Modified by Mauro Duarte Nunes
+ * 21815118
+ * 08/11/2020
  */
 public class Product
 {
