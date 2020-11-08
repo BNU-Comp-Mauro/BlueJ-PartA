@@ -36,9 +36,14 @@ public class StockManager
      * @param id The ID of the product.
      * @param amount The amount to increase the quantity by.
      */
-    public void delivery(int id, int amount)
+    public void deliverProduct(int id, int amount)
     {
-        amount += amount;
+        Product product = findProduct(id);
+        
+        if(product!=null)
+            product.deliver(amount);
+        else
+            System.out.println("Invalid Product ID: " + id);
     }
 
     /**
@@ -74,7 +79,7 @@ public class StockManager
     /**
      * Print details of all the products.
      */
-    public void printProductDetails()
+    public void printAllProducts()
     {
         System.out.println("Mauro's Stock List");
         System.out.println("===================");

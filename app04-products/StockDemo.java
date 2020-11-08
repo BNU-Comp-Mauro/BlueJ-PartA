@@ -1,4 +1,4 @@
-
+import java.util.Random;
 
 /**
  * Demonstrate the StockManager and Product classes.
@@ -15,6 +15,8 @@ public class StockDemo
 {
     // The stock manager.
     private StockManager manager;
+    
+    private Random randomGenerator;
 
     /**
      * Create a StockManager and populate it with a few
@@ -23,7 +25,7 @@ public class StockDemo
     public StockDemo(StockManager manager)
     {
         this.manager = manager;
-        
+        randomGenerator = new Random();
         manager.addProduct(new Product(101, "Tesla Model S"));
         manager.addProduct(new Product(102, "Tesla Model 3"));
         manager.addProduct(new Product(103, "Tesla Model X"));
@@ -37,17 +39,30 @@ public class StockDemo
     }
     
     /**
+     * This method runs all the tests necessary to demonstrate that every
+     * requirement has been met.
+     */
+    public void runDemo()
+    {
+        manager.printAllProducts();
+        demoDeliverProducts();
+        manager.printAllProducts();
+    }
+    
+    /**
      * Provide a very simple demonstration of how a StockManager
      * might be used. Details of one product are shown, the
      * product is restocked, and then the details are shown again.
      */
-    public void demo()
+    private void demoDeliverProducts()
     {
-        // Show details of all of the products.
-        manager.printProductDetails();
-        // Take delivery of 5 items of one of the products.
-        manager.delivery(132, 5);
-        manager.printProductDetails();
+        int quantity = 0;
+        
+        for(int id = 101; id <= 110; id++)
+        {
+            quantity = randomGenerator.nextInt(8);
+            manager.deliverProduct(id, quantity);
+        }
     }
     
     /**
