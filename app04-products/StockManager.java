@@ -12,6 +12,8 @@ public class StockManager
 {
     // A list of the products.
     private ArrayList<Product> stock;
+    
+    private Product name;
 
     /**
      * Initialise the stock manager.
@@ -131,5 +133,44 @@ public class StockManager
 
             printProduct(id);
         }
-    }    
+    }
+    
+    /**
+     * Set a new name for a product.
+     */
+    public void setProductName()
+    {
+        
+    }
+    
+    /**
+     * Remove a product from the stock list based on ID.
+     */
+    public Product removeProduct(int id)
+    {
+        return null;
+    }
+    
+    /**
+     * Print a product according to parts of its name.
+     */
+    public void printProductName()
+    {
+        
+    }
+        
+    /**
+     * Print alert for items low on stock.
+     */
+    public void printLowStockProducts(int quantity, int id, String name)
+    {
+        for(Product product: stock)
+        {
+        if(quantity > 0 && quantity <= 2)
+        {
+            System.out.println("The following item is low on stock:");
+            System.out.println(id + ", " + name + ", quantity:" + quantity);
+        }
+        }
+    }
 }

@@ -47,8 +47,10 @@ public class StockDemo
     {
         manager.printAllProducts();
         demoDeliverProducts();
+        System.out.println();
         manager.printAllProducts();
         demoSellProducts();
+        System.out.println();
         manager.printAllProducts();
     }
     

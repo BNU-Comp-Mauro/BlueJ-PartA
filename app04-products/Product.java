@@ -1,3 +1,4 @@
+
 /**
  * Model some details of a product sold by a company.
  * 
@@ -81,6 +82,14 @@ public class Product
     }
 
     /**
+     * Remove a product.
+     */
+    public void remove()
+    {
+
+    }
+    
+    /**
      * Sell one of these products.
      * An error is reported if there appears to be no stock.
      */
@@ -92,8 +101,10 @@ public class Product
         }
         else 
         {
+            System.out.println();
             System.out.println(
                 "Attempt to sell an out of stock item: " + name);
+            System.out.println();
         }
     }
 }
