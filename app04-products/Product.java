@@ -82,14 +82,6 @@ public class Product
     }
 
     /**
-     * Remove a product.
-     */
-    public void remove()
-    {
-
-    }
-    
-    /**
      * Sell one of these products.
      * An error is reported if there appears to be no stock.
      */

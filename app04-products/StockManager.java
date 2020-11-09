@@ -135,15 +135,7 @@ public class StockManager
     }
     
     /**
-     * Rename a given product based on its id.
-     */
-    public void renameProduct(int id)
-    {
-        
-    }
-    
-    /**
-     * Remove a product from the stock list based on ID.
+     * Remove a product from the stock list based on its ID.
      */
     public void removeProduct(int id)
     {
@@ -151,25 +143,40 @@ public class StockManager
     }
     
     /**
+     * Rename a given product based on its id.
+     */
+    public void renameProduct(int id, String name)
+    {
+        
+    }
+    
+    /**
      * Print a product according to parts of its name.
      */
-    public void printProductName()
+    public void printByName(String name)
     {
-         
+        for(Product product: stock)
+        {
+            if(product.getName().contains(name))
+            {
+                System.out.println(product.toString());
+            }
+        }
     }
         
     /**
      * Print alert for items low on stock.
      */
-    public void printLowStockProducts(int quantity, int id, String name)
+    public void printLowStockProducts()
     {
         for(Product product: stock)
         {
-        if(quantity > 0 && quantity <= 2)
-        {
-            System.out.println("The following item is low on stock:");
-            System.out.println(id + ", " + name + ", quantity:" + quantity);
-        }
+            if(product.getQuantity() == 1)
+            {
+                System.out.println("The following item is low on stock:");
+                System.out.println(product);
+                System.out.println();
+            }
         }
     }
 }
