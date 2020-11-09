@@ -1,0 +1,127 @@
+StockManager stock = new StockManager();
+StockDemo demo = new StockDemo(stock);
+demo.runDemo();
+Mauro's Stock List
+===================
+
+0: Tesla Model S stock level: 0
+1: Tesla Model 3 stock level: 0
+2: Tesla Model X stock level: 0
+3: Tesla Model Y stock level: 0
+4: Ford Fiesta stock level: 0
+5: Ford Focus stock level: 0
+6: Opel Astra stock level: 0
+7: Skoda Otavia stock level: 0
+8: Citroen C4 stock level: 0
+9: Porsche Panamera stock level: 0
+
+Attempt to restock Opel Astra with a non-positive amount: 0
+
+Mauro's Stock List
+===================
+
+0: Tesla Model S stock level: 2
+1: Tesla Model 3 stock level: 6
+2: Tesla Model X stock level: 2
+3: Tesla Model Y stock level: 1
+4: Ford Fiesta stock level: 6
+5: Ford Focus stock level: 3
+6: Opel Astra stock level: 0
+7: Skoda Otavia stock level: 6
+8: Citroen C4 stock level: 5
+9: Porsche Panamera stock level: 3
+
+0: Tesla Model S stock level: 2
+0: Tesla Model S stock level: 1
+1: Tesla Model 3 stock level: 6
+1: Tesla Model 3 stock level: 3
+2: Tesla Model X stock level: 2
+2: Tesla Model X stock level: 0
+3: Tesla Model Y stock level: 1
+
+Attempt to sell an out of stock item: Tesla Model Y
+
+3: Tesla Model Y stock level: 0
+4: Ford Fiesta stock level: 6
+4: Ford Fiesta stock level: 2
+5: Ford Focus stock level: 3
+5: Ford Focus stock level: 1
+6: Opel Astra stock level: 0
+
+Attempt to sell an out of stock item: Opel Astra
+
+6: Opel Astra stock level: 0
+7: Skoda Otavia stock level: 6
+7: Skoda Otavia stock level: 3
+8: Citroen C4 stock level: 5
+8: Citroen C4 stock level: 2
+9: Porsche Panamera stock level: 3
+9: Porsche Panamera stock level: 1
+
+Mauro's Stock List
+===================
+
+0: Tesla Model S stock level: 1
+1: Tesla Model 3 stock level: 3
+2: Tesla Model X stock level: 0
+3: Tesla Model Y stock level: 0
+4: Ford Fiesta stock level: 2
+5: Ford Focus stock level: 1
+6: Opel Astra stock level: 0
+7: Skoda Otavia stock level: 3
+8: Citroen C4 stock level: 2
+9: Porsche Panamera stock level: 1
+
+stock.deliverProduct(1, 5);
+stock.findProduct(2)
+    returned Object <object reference>
+stock.printAllProducts();
+Mauro's Stock List
+===================
+
+0: Tesla Model S stock level: 1
+1: Tesla Model 3 stock level: 8
+2: Tesla Model X stock level: 0
+3: Tesla Model Y stock level: 0
+4: Ford Fiesta stock level: 2
+5: Ford Focus stock level: 1
+6: Opel Astra stock level: 0
+7: Skoda Otavia stock level: 3
+8: Citroen C4 stock level: 2
+9: Porsche Panamera stock level: 1
+
+stock.printByName("Tesla");
+0: Tesla Model S stock level: 1
+1: Tesla Model 3 stock level: 8
+2: Tesla Model X stock level: 0
+3: Tesla Model Y stock level: 0
+stock.printLowStockProducts();
+The following item is low on stock:
+0: Tesla Model S stock level: 1
+
+The following item is low on stock:
+5: Ford Focus stock level: 1
+
+The following item is low on stock:
+9: Porsche Panamera stock level: 1
+
+stock.printProduct(4);
+4: Ford Fiesta stock level: 2
+stock.removeProduct(3);
+stock.printAllProducts();
+Mauro's Stock List
+===================
+
+0: Tesla Model S stock level: 1
+1: Tesla Model 3 stock level: 8
+2: Tesla Model X stock level: 0
+4: Ford Fiesta stock level: 2
+5: Ford Focus stock level: 1
+6: Opel Astra stock level: 0
+7: Skoda Otavia stock level: 3
+8: Citroen C4 stock level: 2
+9: Porsche Panamera stock level: 1
+
+stock.sellProduct(1, 4);
+1: Tesla Model 3 stock level: 8
+1: Tesla Model 3 stock level: 3
