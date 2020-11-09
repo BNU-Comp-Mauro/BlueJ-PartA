@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 /**
  * Manage the stock in a business.
  * The stock is described by zero or more Products.
@@ -12,7 +11,7 @@ public class StockManager
 {
     // A list of the products.
     private ArrayList<Product> stock;
-    
+
     private Product name;
     /**
      * Initialise the stock manager.
@@ -133,7 +132,7 @@ public class StockManager
             printProduct(id);
         }
     }
-    
+
     /**
      * Remove a product from the stock list based on its ID.
      */
@@ -141,15 +140,15 @@ public class StockManager
     {
         stock.remove(id);
     }
-    
+
     /**
      * Rename a given product based on its id.
      */
     public void renameProduct(int id, String name)
     {
-        
+
     }
-    
+
     /**
      * Print a product according to parts of its name.
      */
@@ -163,7 +162,7 @@ public class StockManager
             }
         }
     }
-        
+
     /**
      * Print alert for items low on stock.
      */
