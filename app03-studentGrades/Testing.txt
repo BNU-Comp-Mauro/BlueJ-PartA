@@ -1,0 +1,45 @@
+Student student1 = new Student("Mauro", "21815118");
+student1.addCredits(50);
+student1.changeName("Mauro Nunes");
+student1.getCredits()
+    returned int 50
+student1.getLoginName()
+    returned String "Maur218"
+student1.getName()
+    returned String "Mauro Nunes"
+student1.getStudentID()
+    returned String "21815118"
+student1.print();
+Mauro Nunes, student ID: 21815118, credits: 50
+Course course1 = new Course("Computing", "C400");
+course1.print();
+, Course: Computing, Course code: C400
+
+Module module1 = new Module("Programming Concepts", "C0452");
+module1.getModuleCode()
+    returned String "C0452"
+module1.getPercentageMark()
+    returned int 0
+module1.getTitle()
+    returned String "Programming Concepts"
+module1.printModuleDetails();
+Module details:
+
+Title: Programming Concepts
+Code: C0452
+Percentage mark: 0
+
+module1.setPercentageMark(50);
+Current Programming Concepts (C0452) mark: 50
+
+module1.printModuleDetails();
+Module details:
+
+Title: Programming Concepts
+Code: C0452
+Percentage mark: 50
+
+course1.addModule(module1);
+course1.print();
+, Course: Computing, Course code: C400
+
