@@ -14,7 +14,6 @@ public class StockManager
     private ArrayList<Product> stock;
     
     private Product name;
-
     /**
      * Initialise the stock manager.
      */
@@ -136,9 +135,9 @@ public class StockManager
     }
     
     /**
-     * Set a new name for a product.
+     * Rename a given product based on its id.
      */
-    public void renameProduct()
+    public void renameProduct(int id)
     {
         
     }
@@ -156,7 +155,7 @@ public class StockManager
      */
     public void printProductName()
     {
-        
+         
     }
         
     /**
