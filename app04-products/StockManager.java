@@ -138,7 +138,7 @@ public class StockManager
     /**
      * Set a new name for a product.
      */
-    public void setProductName()
+    public void renameProduct()
     {
         
     }
@@ -146,9 +146,9 @@ public class StockManager
     /**
      * Remove a product from the stock list based on ID.
      */
-    public Product removeProduct(int id)
+    public void removeProduct(int id)
     {
-        return null;
+        stock.remove(id);
     }
     
     /**

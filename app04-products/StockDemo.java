@@ -27,16 +27,16 @@ public class StockDemo
         this.manager = manager;
         randomGenerator = new Random();
         
-        manager.addProduct(new Product(101, "Tesla Model S"));
-        manager.addProduct(new Product(102, "Tesla Model 3"));
-        manager.addProduct(new Product(103, "Tesla Model X"));
-        manager.addProduct(new Product(104, "Tesla Model Y"));
-        manager.addProduct(new Product(105, "Ford Fiesta"));
-        manager.addProduct(new Product(106, "Ford Focus"));
-        manager.addProduct(new Product(107, "Opel Astra"));
-        manager.addProduct(new Product(108, "Skoda Otavia"));
-        manager.addProduct(new Product(109, "Citroen C4"));
-        manager.addProduct(new Product(110, "Porsche Panamera"));
+        manager.addProduct(new Product(0, "Tesla Model S"));
+        manager.addProduct(new Product(1, "Tesla Model 3"));
+        manager.addProduct(new Product(2, "Tesla Model X"));
+        manager.addProduct(new Product(3, "Tesla Model Y"));
+        manager.addProduct(new Product(4, "Ford Fiesta"));
+        manager.addProduct(new Product(5, "Ford Focus"));
+        manager.addProduct(new Product(6, "Opel Astra"));
+        manager.addProduct(new Product(7, "Skoda Otavia"));
+        manager.addProduct(new Product(8, "Citroen C4"));
+        manager.addProduct(new Product(9, "Porsche Panamera"));
     }
     
     /**
