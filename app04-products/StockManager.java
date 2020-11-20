@@ -84,6 +84,7 @@ public class StockManager
      */
     public void printAllProducts()
     {
+        System.out.println("===================");
         System.out.println("Mauro's Stock List");
         System.out.println("===================");
         System.out.println();
