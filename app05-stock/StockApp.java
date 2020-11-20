@@ -13,6 +13,7 @@ public class StockApp
     // Use to get user input
     private InputReader input;
     private StockManager manager;
+    private StockDemo oldStock;
     /**
      * Constructor for objects of class StockApp
      */
@@ -20,6 +21,7 @@ public class StockApp
     {
         input = new InputReader();
         manager = new StockManager();
+        oldStock = new StockDemo(manager);
     }
 
     /**
@@ -117,9 +119,9 @@ public class StockApp
      */
     private void printHeading()
     {
-        System.out.println("******************************");
+        System.out.println("\n******************************");
         System.out.println(" Stock Management Application ");
-        System.out.println("    App05: by Mauro Duarte Nunes ");
+        System.out.println(" App05: by Mauro Duarte Nunes ");
         System.out.println("******************************");
     }
 }

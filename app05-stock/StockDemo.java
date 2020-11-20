@@ -37,6 +37,7 @@ public class StockDemo
         manager.addProduct(new Product(7, "Skoda Otavia"));
         manager.addProduct(new Product(8, "Citroen C4"));
         manager.addProduct(new Product(9, "Porsche Panamera"));
+        manager.addProduct(new Product(10, "BMW i8"));
     }
     
     /**

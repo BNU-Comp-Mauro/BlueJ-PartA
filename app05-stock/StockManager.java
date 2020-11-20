@@ -93,8 +93,6 @@ public class StockManager
         {
             System.out.println(product);
         }
-
-        System.out.println();
     }
 
     /**
