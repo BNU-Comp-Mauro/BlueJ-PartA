@@ -25,7 +25,7 @@ public class StockApp
     }
 
     /**
-     * 
+     * Starts the program.
      */
     public void run()
     {
@@ -33,7 +33,8 @@ public class StockApp
     }
 
     /**
-     * 
+     * Prints heading and menu choices, and allows the user to start
+     * inputting. When user's input is "quit", it finishes the program.
      */
     public void getMenuChoice()
     {
@@ -59,7 +60,8 @@ public class StockApp
     }
 
     /**
-     * 
+     * This method uses the user's input and executes the different methods
+     * available based on said input.
      */
     private void executeMenuChoice(String choice)
     {
