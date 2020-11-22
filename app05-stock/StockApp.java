@@ -77,6 +77,10 @@ public class StockApp
         {
             printAllProducts();
         }
+        else if(choice.equals("deliver"))
+        {
+            deliverProduct();
+        }
     }
 
     /**
@@ -85,40 +89,70 @@ public class StockApp
     private void addProduct()
     {
         System.out.println("\nAdding a new product\n");
-        
+
         System.out.println("Please enter the product ID");
         String value = reader.getInput();
         int id = Integer.parseInt(value);
-        
+
         System.out.println("Please enter the product name ");
         String name = reader.getInput();
-        
+
         Product product = new Product(id, name);
         System.out.println("Added new product " + product);
-        
+
         manager.addProduct(product);
     }
-    
+
     /**
      * Remove a product from the stock manager.
      */
     private void removeProduct()  
     {
         System.out.println("\nRemoving an existing product\n");
-        
+
         System.out.println("Please enter the product ID");
         String value = reader.getInput();
         int id = Integer.parseInt(value);
-        
+
         System.out.println("Please enter the product name ");
         String name = reader.getInput();
-        
+
         Product product = new Product(id, name);
         System.out.println("Removed an existing product " + product);
-        
+
         manager.removeProduct(id);
     }
-    
+
+    /**
+     * Deliver a product's stock to the stock manager.
+     */
+    private void deliverProduct()  
+    {
+        System.out.println("\nDelivering a product\n");
+
+        System.out.println("Please enter the product ID");
+        String value = reader.getInput();
+        int id = Integer.parseInt(value);
+
+        System.out.println("Please enter the product name ");
+        String name = reader.getInput();
+
+        System.out.println("Please enter the product amount ");
+        String quantity = reader.getInput();
+        int amount = Integer.parseInt(quantity);
+        if(amount > 0)
+        {
+            Product product = new Product(id, name);
+            System.out.println("Delivered a product " + product);
+
+            manager.deliverProduct(id, amount);
+        }
+        else
+        {
+            System.out.println("Please enter a positive amount");
+        }
+    }
+
     /**
      * Prints all products available.
      */
@@ -126,7 +160,7 @@ public class StockApp
     {
         manager.printAllProducts();
     }
-    
+
     /**
      * Print out a menu of operation choices
      */
