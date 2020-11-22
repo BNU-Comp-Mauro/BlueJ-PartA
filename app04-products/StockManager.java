@@ -125,9 +125,9 @@ public class StockManager
     /**
      * Remove a product from the stock list based on its ID.
      */
-    public void removeProduct(int id)
+    public void removeProduct(Product item)
     {
-        stock.remove(id);
+        stock.remove(item);
     }
 
     /**
