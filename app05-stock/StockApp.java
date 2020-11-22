@@ -116,10 +116,10 @@ public class StockApp
 
         System.out.println("Please enter the product name ");
         String name = reader.getInput();
-
+        
         Product product = new Product(id, name);
         System.out.println("Removed an existing product " + product);
-
+        
         manager.removeProduct(product);
     }
 
@@ -144,7 +144,8 @@ public class StockApp
         if(amount == 1)
         {
             Product product = new Product(id, name);
-            System.out.println("Delivered 1 item of product " + id + ": " + name);
+            System.out.println("Delivered 1 item of product " + id +
+            ": " + name);
 
             manager.deliverProduct(id, 1);
         }
@@ -180,8 +181,8 @@ public class StockApp
         System.out.println("    Add:        Add a new product");
         System.out.println("    Remove:     Remove an existing product");
         System.out.println("    PrintAll:   Print all products");
-        System.out.println("    Quit:       Quit the program");
         System.out.println("    Deliver:    Deliver stock to a product");
+        System.out.println("    Quit:       Quit the program");
         System.out.println();        
     }
 

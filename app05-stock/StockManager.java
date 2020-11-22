@@ -23,11 +23,18 @@ public class StockManager
 
     /**
      * Add a product to the list.
-     * @param item The item to be added.
      */
-    public void addProduct(Product item)
+    public void addProduct(Product product)
     {
-        stock.add(item);
+        stock.add(product);
+    }
+
+    /**
+     * Remove a product from the stock list based on its ID.
+     */
+    public void removeProduct(Product product)
+    {
+        stock.remove(product);
     }
 
     /**
@@ -115,17 +122,9 @@ public class StockManager
             {
                 product.sellOne();
             }
-            
+
             printProduct(id);
         }
-    }
-
-    /**
-     * Remove a product from the stock list based on its ID.
-     */
-    public void removeProduct(Product item)
-    {
-        stock.remove(item);
     }
 
     /**
