@@ -137,19 +137,29 @@ public class StockApp
         System.out.println("Please enter the product name ");
         String name = reader.getInput();
 
-        System.out.println("Please enter the product amount ");
+        System.out.println("Please enter the amount to be delivered ");
         String quantity = reader.getInput();
         int amount = Integer.parseInt(quantity);
-        if(amount > 0)
+        
+        if(amount == 1)
         {
             Product product = new Product(id, name);
-            System.out.println("Delivered a product " + product);
+            System.out.println("Delivered 1 item of product " + id + ": " + name);
+
+            manager.deliverProduct(id, 1);
+        }
+        else if(amount > 1)
+        {
+            Product product = new Product(id, name);
+            System.out.println("Delivered " + amount + " items of product " + id + ": " + name);
 
             manager.deliverProduct(id, amount);
         }
-        else
+        else if(amount < 1)
         {
-            System.out.println("Please enter a positive amount");
+            System.out.println("\n-------------------------------------");
+            System.out.println("Error: Please enter a positive amount");
+            System.out.println("-------------------------------------");
         }
     }
 
@@ -168,9 +178,10 @@ public class StockApp
     {
         System.out.println();
         System.out.println("    Add:        Add a new product");
-        System.out.println("    Remove:     Remove an old product");
+        System.out.println("    Remove:     Remove an existing product");
         System.out.println("    PrintAll:   Print all products");
         System.out.println("    Quit:       Quit the program");
+        System.out.println("    Deliver:    Deliver stock to a product");
         System.out.println();        
     }
 
