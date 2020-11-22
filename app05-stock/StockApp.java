@@ -120,7 +120,7 @@ public class StockApp
         Product product = new Product(id, name);
         System.out.println("Removed an existing product " + product);
 
-        manager.removeProduct(id);
+        manager.removeProduct(product);
     }
 
     /**
