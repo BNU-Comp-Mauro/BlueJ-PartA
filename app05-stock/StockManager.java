@@ -39,7 +39,7 @@ public class StockManager
 
     /**
      * Try to find a product in the stock with the given id.
-     * @return The identified product, or null if there is none
+     * Return the identified product, or null if there is none
      * with a matching ID.
      */
     public Product findProduct(int id)
@@ -138,7 +138,7 @@ public class StockManager
     /**
      * Print a product according to parts of its name.
      */
-    public void printByName(String name)
+    public void searchProduct(String name)
     {
         for(Product product: stock)
         {
@@ -147,6 +147,7 @@ public class StockManager
                 System.out.println(product.toString());
             }
         }
+        //TO COMPLETE//
     }
 
     /**

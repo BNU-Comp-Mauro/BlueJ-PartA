@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * This app provides a user interface to the
  * stock manager so that users can add, edit,
@@ -14,6 +14,7 @@ public class StockApp
     private InputReader reader;
     private StockManager manager;
     private StockDemo oldStock;
+    private ArrayList<Product> stock;
     /**
      * Constructor for objects of class StockApp
      */
@@ -81,6 +82,10 @@ public class StockApp
         {
             deliverProduct();
         }
+        else if(choice.equals("search"))
+        {
+            searchProduct();
+        }
     }
 
     /**
@@ -116,10 +121,10 @@ public class StockApp
 
         System.out.println("Please enter the product name ");
         String name = reader.getInput();
-        
+
         Product product = new Product(id, name);
         System.out.println("Removed an existing product " + product);
-        
+
         manager.removeProduct(product);
     }
 
@@ -140,12 +145,12 @@ public class StockApp
         System.out.println("Please enter the amount to be delivered ");
         String quantity = reader.getInput();
         int amount = Integer.parseInt(quantity);
-        
+
         if(amount == 1)
         {
             Product product = new Product(id, name);
             System.out.println("Delivered 1 item of product " + id +
-            ": " + name);
+                ": " + name);
 
             manager.deliverProduct(id, 1);
         }
@@ -162,6 +167,21 @@ public class StockApp
             System.out.println("Error: Please enter a positive amount");
             System.out.println("-------------------------------------");
         }
+    }
+
+    /**
+     * Try to find a product in the stock with the given id.
+     * Return the identified product, or null if there is none
+     * with a matching ID.
+     */
+    public void searchProduct()
+    {
+        System.out.println("\nSearching for a product\n");
+
+        System.out.println("Please enter a keyword");
+        String name = reader.getInput();
+        
+        //TO COMPLETE//
     }
 
     /**
