@@ -14,7 +14,7 @@ public class StockApp
     private InputReader reader;
     private StockManager manager;
     private StockDemo oldStock;
-    private ArrayList<Product> stock;
+
     /**
      * Constructor for objects of class StockApp
      */
@@ -181,7 +181,7 @@ public class StockApp
         System.out.println("Please enter a keyword");
         String name = reader.getInput();
         
-        //TO COMPLETE//
+        manager.searchProduct(name);
     }
 
     /**

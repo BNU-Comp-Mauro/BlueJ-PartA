@@ -12,7 +12,6 @@ public class StockManager
     // A list of the products.
     private ArrayList<Product> stock;
 
-    private Product name;
     /**
      * Initialise the stock manager.
      */
@@ -34,7 +33,13 @@ public class StockManager
      */
     public void removeProduct(Product product)
     {
-        stock.remove(product);
+        for(int i = 0; i < stock.size(); i++)
+        {
+            if(stock.get(i).getName().equalsIgnoreCase(product.getName()))
+            {
+                stock.remove(i);
+            }
+        }
     }
 
     /**
@@ -144,7 +149,12 @@ public class StockManager
         {
             if(product.getName().contains(name))
             {
+                System.out.println("\nFound products containing this keyword");
                 System.out.println(product.toString());
+            }
+            else
+            {
+                System.out.println("\nThere are no products containing this keyword");
             }
         }
         //TO COMPLETE//
