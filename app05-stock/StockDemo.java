@@ -64,7 +64,7 @@ public class StockDemo
     {
         int quantity = 0;
         
-        for(int id = 0; id <= 9; id++)
+        for(int id = 101; id <= 111; id++)
         {
             quantity = randomGenerator.nextInt(8);
             manager.deliverProduct(id, quantity);
@@ -80,7 +80,7 @@ public class StockDemo
     {
         int quantity = 0;
         
-        for(int id = 0; id <= 9; id++)
+        for(int id = 101; id <= 111; id++)
         {
             quantity = randomGenerator.nextInt(4);
             manager.sellProduct(id, quantity);

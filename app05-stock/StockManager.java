@@ -71,9 +71,13 @@ public class StockManager
         Product product = findProduct(id);
 
         if(product != null)
-            product.deliver(amount);
+        {
+           product.deliver(amount); 
+        }
         else
+        {
             System.out.println("Invalid Product ID: " + id);
+        }    
     }
 
     /**
@@ -110,7 +114,6 @@ public class StockManager
     /**
      * Sell one of the given item.
      * Show the before and after status of the product.
-     * @param id The ID of the product being sold.
      */
     public void sellProduct(int id, int quantity)
     {
@@ -119,13 +122,15 @@ public class StockManager
         if(product != null) 
         {
             if(quantity > product.getQuantity()) 
+            {
                 quantity = product.getQuantity();
+            }
 
             printProduct(id);
 
-            for(int count = 0; count <= quantity; count++)
+            for(int count = 0; count < quantity; count++)
             {
-                product.sellOne();
+                product.sellAmount();
             }
 
             printProduct(id);
@@ -149,15 +154,14 @@ public class StockManager
         {
             if(product.getName().contains(name))
             {
-                System.out.println("\nFound products containing this keyword");
                 System.out.println(product.toString());
             }
             else
             {
-                System.out.println("\nThere are no products containing this keyword");
+                System.out.println("There are no products containing this keyword");
             }
         }
-        //TO COMPLETE//
+        //TO COMPLETE - LOOPS TOO MUCH//
     }
 
     /**
@@ -167,9 +171,9 @@ public class StockManager
     {
         for(Product product: stock)
         {
-            if(product.getQuantity() == 1)
+            if(product.getQuantity() <= 1)
             {
-                System.out.println("The following item is low on stock:");
+                System.out.println("The following items are low on stock:");
                 System.out.println(product);
                 System.out.println();
             }

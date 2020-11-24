@@ -86,6 +86,14 @@ public class StockApp
         {
             searchProduct();
         }
+        else if(choice.equals("lowstock"))
+        {
+            printLowStockProducts();
+        }
+        else if(choice.equals("sell"))
+        {
+            sellProduct();
+        }
     }
 
     /**
@@ -146,18 +154,10 @@ public class StockApp
         String quantity = reader.getInput();
         int amount = Integer.parseInt(quantity);
 
-        if(amount == 1)
+        if(amount >= 1)
         {
             Product product = new Product(id, name);
-            System.out.println("Delivered 1 item of product " + id +
-                ": " + name);
-
-            manager.deliverProduct(id, 1);
-        }
-        else if(amount > 1)
-        {
-            Product product = new Product(id, name);
-            System.out.println("Delivered " + amount + " items of product " + id + ": " + name);
+            System.out.println("Delivered " + amount + " item/s of product " + id + ": " + name);
 
             manager.deliverProduct(id, amount);
         }
@@ -170,18 +170,62 @@ public class StockApp
     }
 
     /**
+     * Sell a given amount of a product.
+     */
+    private void sellProduct()
+    {
+        System.out.println("\nSelling an item");
+
+        System.out.println("\nPlease enter the item ID");
+        String value = reader.getInput();
+        int id = Integer.parseInt(value);
+
+        System.out.println("\nPlease enter the item name");
+        String name = reader.getInput();
+
+        System.out.println("\nPlease enter the quantity to sell ");
+        String amount = reader.getInput(); 
+        int quantity = Integer.parseInt(amount);
+
+        if(quantity > 0)
+        {
+            Product product = new Product(id, name);
+            System.out.println("\nSold " + quantity + " item/s of product " + 
+                id + ": " + name);
+
+            manager.sellProduct(id, quantity);
+        }
+        else
+        {
+            System.out.println("\n-------------------------------------");
+            System.out.println("Error: Please enter a positive amount");
+            System.out.println("-------------------------------------");
+        }
+    }
+
+    /**
      * Try to find a product in the stock with the given id.
      * Return the identified product, or null if there is none
      * with a matching ID.
      */
-    public void searchProduct()
+    private void searchProduct()
     {
         System.out.println("\nSearching for a product\n");
 
         System.out.println("Please enter a keyword");
         String name = reader.getInput();
-        
+
         manager.searchProduct(name);
+    }
+
+    /**
+     * Prints a list of the products that are low on stock
+     */
+    private void printLowStockProducts()
+    {
+        System.out.println("\nPrinting products low on stock");
+
+        manager.printLowStockProducts();
     }
 
     /**
@@ -200,8 +244,11 @@ public class StockApp
         System.out.println();
         System.out.println("    Add:        Add a new product");
         System.out.println("    Remove:     Remove an existing product");
-        System.out.println("    PrintAll:   Print all products");
         System.out.println("    Deliver:    Deliver stock to a product");
+        System.out.println("    Sell:       Sell a product");
+        System.out.println("    Search:     Search for a product based on part of its name");
+        System.out.println("    LowStock:   Print a list of products low on stock");
+        System.out.println("    PrintAll:   Print all products");
         System.out.println("    Quit:       Quit the program");
         System.out.println();        
     }
