@@ -223,8 +223,6 @@ public class StockApp
      */
     private void printLowStockProducts()
     {
-        System.out.println("\nPrinting products low on stock");
-
         manager.printLowStockProducts();
     }
 

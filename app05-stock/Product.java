@@ -57,7 +57,7 @@ public class Product
      */
     public String toString()
     {
-        return id + ": " +  name + " stock level: " + quantity;
+        return id + ": " +  name + " [Stock Level: " + quantity + "]";
     }
 
     /**

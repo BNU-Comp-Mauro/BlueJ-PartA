@@ -72,7 +72,7 @@ public class StockManager
 
         if(product != null)
         {
-           product.deliver(amount); 
+            product.deliver(amount); 
         }
         else
         {
@@ -169,13 +169,13 @@ public class StockManager
      */
     public void printLowStockProducts()
     {
+        System.out.println("\nThe following products are low on stock:");
+        System.out.println();
         for(Product product: stock)
         {
             if(product.getQuantity() <= 1)
             {
-                System.out.println("The following items are low on stock:");
                 System.out.println(product);
-                System.out.println();
             }
         }
     }
