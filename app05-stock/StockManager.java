@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class StockManager
 {
     private ArrayList<Product> stock;
+    private Product product;
 
     /**
      * Initialise the stock manager.
@@ -28,7 +29,7 @@ public class StockManager
     }
 
     /**
-     * Remove a product from the stock list based on its ID.
+     * Remove a product from the list.
      */
     public void removeProduct(Product product)
     {
@@ -39,24 +40,6 @@ public class StockManager
                 stock.remove(i);
             }
         }
-    }
-
-    /**
-     * Try to find a product in the stock with the given id.
-     * Return the identified product, or null if there is none
-     * with a matching ID.
-     */
-    public Product findProduct(int id)
-    {
-        for(Product product : stock)
-        {
-            if(product.getID() == id)
-            {
-                return product;
-            }
-        }
-
-        return null;
     }
 
     /**
@@ -89,36 +72,6 @@ public class StockManager
     }
 
     /**
-     * Print details of the given product. If found,
-     * its name and stock quantity will be shown.
-     */
-    public void printProduct(int id)
-    {
-        Product product = findProduct(id);
-
-        if(product != null) 
-        {
-            System.out.println(product.toString());
-        }
-    }
-
-    /**
-     * Print details of all the products.
-     */
-    public void printAllProducts()
-    {
-        System.out.println("====================");
-        System.out.println(" Mauro's Stock List");
-        System.out.println("====================");
-        System.out.println();
-
-        for(Product product : stock)
-        {
-            System.out.println(product);
-        }
-    }
-
-    /**
      * Sell a certain amount of a product.
      * Show the before and after status of the product.
      */
@@ -143,7 +96,8 @@ public class StockManager
             else
             {
                 System.out.println("\nSold " + amount + 
-                    " item/s of product " + product.getID() + ": " + product.getName());
+                " item/s of product " + product.getID() + ": " +
+                product.getName());
 
                 printProduct(id);
 
@@ -156,9 +110,9 @@ public class StockManager
             }
         }
     }
-
+    
     /**
-     * Print a product according to parts of its name.
+     * Print a product according to part of its name.
      */
     public void searchProduct(String name)
     {   
@@ -172,15 +126,16 @@ public class StockManager
             //keyword" + "'" + name + "'");
         }
     }
-
+    
     /**
-     * Print alert for items low on stock.
+     * Print alert for products low on stock.
      */
-    public void printLowStockProducts()
+    public void printLowStockProducts(int lowStockLevel)
     {
+        System.out.println();
         for(Product product: stock)
         {
-            if(product.getQuantity() <= 1)
+            if(product.getQuantity() <= lowStockLevel)
             {
                 System.out.println(product);
             }
@@ -188,18 +143,70 @@ public class StockManager
     }
 
     /**
-     * Print alert for items low on stock.
+     * Restock products low on stock.
      */
     public void restockProducts(int lowStockLevel, int restockLevel)
     {
+        System.out.println("\nThe following products were restocked by " + restockLevel + 
+        ":");
+        System.out.println();
         for(Product product : stock)
         {
-            if(product.getQuantity() < lowStockLevel)
+            if(product.getQuantity() <= lowStockLevel)
             {
+                System.out.println(product.getID() + 
+                ": " + product.getName() + " [Stock Level: " + 
+                (product.getQuantity() + restockLevel) + "]");
                 product.deliver(restockLevel);
-                System.out.println(product.getName() + " Low Stock");
-                System.out.println("Has been restocked to " + restockLevel);
             }
+        }
+    }
+    
+    /**
+     * Print details of all the products.
+     */
+    public void printAllProducts()
+    {
+        System.out.println("====================");
+        System.out.println(" Mauro's Stock List");
+        System.out.println("====================");
+        System.out.println();
+
+        for(Product product : stock)
+        {
+            System.out.println(product);
+        }
+    }
+    
+    /**
+     * Try to find a product in the stock with the given id.
+     * Return the identified product, or null if there is none
+     * with a matching ID.
+     */
+    public Product findProduct(int id)
+    {
+        for(Product product : stock)
+        {
+            if(product.getID() == id)
+            {
+                return product;
+            }
+        }
+
+        return null;
+    }
+    
+    /**
+     * Print details of the given product. If found,
+     * its name and stock quantity will be shown.
+     */
+    public void printProduct(int id)
+    {
+        Product product = findProduct(id);
+
+        if(product != null) 
+        {
+            System.out.println(product.toString());
         }
     }
 }

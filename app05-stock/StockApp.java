@@ -4,22 +4,22 @@ import java.util.ArrayList;
  * stock manager so that users can add, edit,
  * print and remove stock products
  *
- * @author Mauro Duarte Nunes
+ * Modified by Mauro Duarte Nunes
  * 21815118
- * 20/11/2020
+ * 08/11/2020
  */
 public class StockApp
 {
     public static final String ADD_PRODUCT = "add";
     public static final String REMOVE_PRODUCT = "remove";
-    public static final String PRINT_ALL = "printall";
     public static final String DELIVER_PRODUCT = "deliver";
+    public static final String SELL_PRODUCT = "sell";
     public static final String SEARCH_PRODUCT = "search";
     public static final String LOW_STOCK = "lowstock";
-    public static final String SELL_PRODUCT = "sell";
-    public static final String RESTOCK_ALL_PRODUCTS = "restockall";
+    public static final String RESTOCK_PRODUCTS = "restock";
+    public static final String PRINT_ALL = "printall";
     public static final String QUIT_PROGRAM = "quit";
-    
+
     // Use to get user input
     private InputReader reader;
     private StockManager manager;
@@ -28,7 +28,7 @@ public class StockApp
     private int id;
     private int amount;
     private String name;
-    
+
     /**
      * Constructor for objects of class StockApp
      */
@@ -53,7 +53,7 @@ public class StockApp
 
     /**
      * Prints heading and menu choices, and allows the user to start
-     * inputting. When user's input is "quit", it finishes the program.
+     * inputting. When user's input is "quit", the program stops.
      */
     public void getMenuChoice()
     {
@@ -79,8 +79,8 @@ public class StockApp
     }
 
     /**
-     * This method uses the user's input and executes the different methods
-     * available based on said input.
+     * Uses the user's input and executes the different methods
+     * available based on the input.
      */
     private void executeMenuChoice(String choice)
     {
@@ -92,13 +92,13 @@ public class StockApp
         {
             removeProduct();
         }
-        else if(choice.equals(PRINT_ALL))
-        {
-            printAllProducts();
-        }
         else if(choice.equals(DELIVER_PRODUCT))
         {
             deliverProduct();
+        }
+        else if(choice.equals(SELL_PRODUCT))
+        {
+            sellProduct();
         }
         else if(choice.equals(SEARCH_PRODUCT))
         {
@@ -108,13 +108,13 @@ public class StockApp
         {
             printLowStockProducts();
         }
-        else if(choice.equals(SELL_PRODUCT))
+        else if(choice.equals(RESTOCK_PRODUCTS))
         {
-            sellProduct();
+            restockProducts();
         }
-        else if(choice.equals(RESTOCK_ALL_PRODUCTS))
+        else if(choice.equals(PRINT_ALL))
         {
-            restockAllProducts();
+            printAllProducts();
         }
     }
 
@@ -123,13 +123,13 @@ public class StockApp
      */
     private void addProduct()
     {
-        System.out.println("\nAdding a new product\n");
+        System.out.println("Adding a new product");
 
-        System.out.println("Please enter the product ID");
+        System.out.println("\nPlease enter the product ID");
         String value = reader.getInput();
         id = Integer.parseInt(value);
 
-        System.out.println("Please enter the product name ");
+        System.out.println("Please enter the product name");
         name = reader.getInput();
 
         Product product = new Product(id, name);
@@ -143,9 +143,9 @@ public class StockApp
      */
     private void removeProduct()  
     {
-        System.out.println("\nRemoving an existing product\n");
+        System.out.println("Removing an existing product");
 
-        System.out.println("Please enter the product ID");
+        System.out.println("\nPlease enter the product ID");
         String value = reader.getInput();
         id = Integer.parseInt(value);
 
@@ -153,29 +153,30 @@ public class StockApp
         name = reader.getInput();
 
         Product product = new Product(id, name);
-        System.out.println("Removed an existing product " + product);
+        System.out.println("Removed an existing product " 
+            + product.getID() + ": " + product.getName());
 
         manager.removeProduct(product);
     }
 
+    /**
+     * User input for deliverProduct method.
+     */
     private void getDeliverInput()
     {
-        System.out.println("\nDelivering a product\n");
+        System.out.println("Delivering a product");
 
-        System.out.println("Please enter the product ID");
+        System.out.println("\nPlease enter the product ID");
         String value = reader.getInput();
         id = Integer.parseInt(value);
-
-        System.out.println("Please enter the product name ");
-        name = reader.getInput();
 
         System.out.println("Please enter the amount to be delivered ");
         String quantity = reader.getInput();
         amount = Integer.parseInt(quantity);
     }
-    
+
     /**
-     * Deliver a product's stock to the stock manager.
+     * Deliver a chosen amount of a product.
      */
     private void deliverProduct()  
     {
@@ -184,12 +185,12 @@ public class StockApp
     }
 
     /**
-     * Sell a given amount of a product.
+     * User input for sellProduct method.
      */
-    private void sellProduct()
+    private void getSellInput()
     {
         System.out.println("\nSelling an item");
-
+        
         System.out.println("\nPlease enter the item ID");
         String value = reader.getInput();
         id = Integer.parseInt(value);
@@ -199,54 +200,59 @@ public class StockApp
 
         System.out.println("Please enter the quantity to sell ");
         String quantity = reader.getInput();
-        int amount = Integer.parseInt(quantity);
+        amount = Integer.parseInt(quantity);
+    }
 
+    /**
+     * Sell a chosen amount of a product.
+     */
+    private void sellProduct()
+    {
+        getSellInput();
         manager.sellProduct(id, amount);
     }
 
     /**
-     * Try to find a product in the stock with the given id.
-     * Return the identified product, or null if there is none
-     * with a matching ID.
+     * Search for a product based on part of its name.
      */
     private void searchProduct()
     {
-        System.out.println("\nSearching for a product\n");
+        System.out.println("Searching for a product");
 
-        System.out.println("Please enter a keyword");
+        System.out.println("\nPlease enter a keyword");
         String name = reader.getInput();
 
         manager.searchProduct(name);
     }
 
     /**
-     * Prints a list of the products that are low on stock
+     * Prints a list of the products that are low on stock.
      */
     private void printLowStockProducts()
     {
         System.out.println("\nThe following products are low on stock:");
-        System.out.println();
-        manager.printLowStockProducts();
+
+        int lowStockLevel = product.getLowStockLevel();
+        manager.printLowStockProducts(lowStockLevel);
     }
 
     /**
-     * Prints a list of the products that are low on stock
+     * Restock products that are low on stock.
      */
-    private void restockAllProducts()
+    private void restockProducts()
     {    
-        System.out.println("\nPlease enter the low stock level");
-        String value = reader.getInput();
-        int lowStock = Integer.parseInt(value);
-        
+        System.out.println("Restocking products low on stock");
+
         System.out.println("\nPlease enter the restock level");
         String reStock = reader.getInput();
-        int restock = Integer.parseInt(reStock);
-        
-        manager.restockProducts(lowStock, restock);
+        int restockLevel = Integer.parseInt(reStock);
+
+        int lowStockLevel = product.getLowStockLevel();
+        manager.restockProducts(lowStockLevel, restockLevel);
     }
-    
+
     /**
-     * Prints all products available.
+     * Prints all available products.
      */
     private void printAllProducts()
     {
@@ -254,7 +260,7 @@ public class StockApp
     }
 
     /**
-     * Print out a menu of operation choices
+     * Print out a menu of operation choices.
      */
     private void printMenuChoices()
     {
@@ -264,14 +270,15 @@ public class StockApp
         System.out.println("    Deliver:    Deliver stock to a product");
         System.out.println("    Sell:       Sell a product");
         System.out.println("    Search:     Search for a product based on part of its name");
-        System.out.println("    LowStock:   Print a list of products low on stock");
+        System.out.println("    LowStock:   Print a list of low on stock products ");
+        System.out.println("    Restock:    Restock low on stock products by a set amount");
         System.out.println("    PrintAll:   Print all products");
         System.out.println("    Quit:       Quit the program");
-        System.out.println();        
+        System.out.println();
     }
 
     /**
-     * Print the title of the program and the authors name
+     * Print the title of the program and the authors name.
      */
     private void printHeading()
     {

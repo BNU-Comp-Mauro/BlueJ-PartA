@@ -1,9 +1,6 @@
-
 /**
  * Model some details of a product sold by a company.
  * 
- * @author David J. Barnes and Michael Kölling.
- * @version 2016.02.29
  * Modified by Mauro Duarte Nunes
  * 21815118
  * 08/11/2020
@@ -13,8 +10,8 @@ public class Product
     private int id;
     private String name;
     private int quantity;
-    private int lowStock;
-    private int restock;
+    private int lowStockLevel;
+    private int restockLevel;
     
     /**
      * Constructor for objects of class Product.
@@ -24,9 +21,8 @@ public class Product
     {
         this.id = id;
         this.name = name;
-        quantity = 0;
-        lowStock = 2;
-        restock = 5;
+        this.restockLevel = restockLevel;
+        restockLevel = 5;
     }
 
     /**
@@ -54,6 +50,14 @@ public class Product
     }
     
     /**
+     * Get the low stock quantity.
+     */
+    public int getLowStockLevel()
+    {
+        return lowStockLevel;
+    }
+    
+    /**
      * Return the id, name and quantity in stock.
      */
     public String toString()
@@ -62,7 +66,7 @@ public class Product
     }
 
     /**
-     * Deliver given amount of this product.
+     * Deliver a given amount of a product.
      */
     public void deliver(int amount)
     {

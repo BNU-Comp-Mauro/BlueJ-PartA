@@ -1,12 +1,9 @@
 import java.util.Random;
-
 /**
  * Demonstrate the StockManager and Product classes.
  * The demonstration becomes properly functional as
  * the StockManager class is completed.
  * 
- * @author David J. Barnes and Michael Kölling.
- * @version 2016.02.29
  * Modified by Mauro Duarte Nunes
  * 21815118
  * 08/11/2020
