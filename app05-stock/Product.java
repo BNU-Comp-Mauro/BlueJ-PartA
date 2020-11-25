@@ -10,13 +10,12 @@
  */
 public class Product
 {
-    // An identifying number for this product.
     private int id;
-    // The name of this product.
     private String name;
-    // The quantity of this product in stock.
     private int quantity;
-
+    private int lowStock;
+    private int restock;
+    
     /**
      * Constructor for objects of class Product.
      * The initial stock quantity is zero.
@@ -26,6 +25,8 @@ public class Product
         this.id = id;
         this.name = name;
         quantity = 0;
+        lowStock = 2;
+        restock = 5;
     }
 
     /**

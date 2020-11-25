@@ -10,12 +10,25 @@ import java.util.ArrayList;
  */
 public class StockApp
 {
+    public static final String ADD_PRODUCT = "add";
+    public static final String REMOVE_PRODUCT = "remove";
+    public static final String PRINT_ALL = "printall";
+    public static final String DELIVER_PRODUCT = "deliver";
+    public static final String SEARCH_PRODUCT = "search";
+    public static final String LOW_STOCK = "lowstock";
+    public static final String SELL_PRODUCT = "sell";
+    public static final String RESTOCK_ALL_PRODUCTS = "restockall";
+    public static final String QUIT_PROGRAM = "quit";
+    
     // Use to get user input
     private InputReader reader;
     private StockManager manager;
     private StockDemo oldStock;
     private Product product;
-
+    private int id;
+    private int amount;
+    private String name;
+    
     /**
      * Constructor for objects of class StockApp
      */
@@ -24,6 +37,10 @@ public class StockApp
         reader = new InputReader();
         manager = new StockManager();
         oldStock = new StockDemo(manager);
+        product = new Product(id, name);
+        this.id = id;
+        this.amount = amount;
+        this.name = name;
     }
 
     /**
@@ -50,7 +67,7 @@ public class StockApp
             String choice = reader.getInput();
             choice = choice.toLowerCase();
 
-            if(choice.equals("quit"))
+            if(choice.equals(QUIT_PROGRAM))
             {
                 finished = true;
             }
@@ -67,33 +84,37 @@ public class StockApp
      */
     private void executeMenuChoice(String choice)
     {
-        if(choice.equals("add"))
+        if(choice.equals(ADD_PRODUCT))
         {
             addProduct();
         }
-        else if(choice.equals("remove"))
+        else if(choice.equals(REMOVE_PRODUCT))
         {
             removeProduct();
         }
-        else if(choice.equals("printall"))
+        else if(choice.equals(PRINT_ALL))
         {
             printAllProducts();
         }
-        else if(choice.equals("deliver"))
+        else if(choice.equals(DELIVER_PRODUCT))
         {
             deliverProduct();
         }
-        else if(choice.equals("search"))
+        else if(choice.equals(SEARCH_PRODUCT))
         {
             searchProduct();
         }
-        else if(choice.equals("lowstock"))
+        else if(choice.equals(LOW_STOCK))
         {
             printLowStockProducts();
         }
-        else if(choice.equals("sell"))
+        else if(choice.equals(SELL_PRODUCT))
         {
             sellProduct();
+        }
+        else if(choice.equals(RESTOCK_ALL_PRODUCTS))
+        {
+            restockAllProducts();
         }
     }
 
@@ -106,10 +127,10 @@ public class StockApp
 
         System.out.println("Please enter the product ID");
         String value = reader.getInput();
-        int id = Integer.parseInt(value);
+        id = Integer.parseInt(value);
 
         System.out.println("Please enter the product name ");
-        String name = reader.getInput();
+        name = reader.getInput();
 
         Product product = new Product(id, name);
         System.out.println("Added new product " + product);
@@ -126,10 +147,10 @@ public class StockApp
 
         System.out.println("Please enter the product ID");
         String value = reader.getInput();
-        int id = Integer.parseInt(value);
+        id = Integer.parseInt(value);
 
         System.out.println("Please enter the product name ");
-        String name = reader.getInput();
+        name = reader.getInput();
 
         Product product = new Product(id, name);
         System.out.println("Removed an existing product " + product);
@@ -137,37 +158,29 @@ public class StockApp
         manager.removeProduct(product);
     }
 
-    /**
-     * Deliver a product's stock to the stock manager.
-     */
-    private void deliverProduct()  
+    private void getDeliverInput()
     {
         System.out.println("\nDelivering a product\n");
 
         System.out.println("Please enter the product ID");
         String value = reader.getInput();
-        int id = Integer.parseInt(value);
+        id = Integer.parseInt(value);
 
         System.out.println("Please enter the product name ");
-        String name = reader.getInput();
+        name = reader.getInput();
 
         System.out.println("Please enter the amount to be delivered ");
         String quantity = reader.getInput();
-        int amount = Integer.parseInt(quantity);
-
-        if(amount >= 1)
-        {
-            Product product = new Product(id, name);
-            System.out.println("Delivered " + amount + " item/s of product " + id + ": " + name);
-
-            manager.deliverProduct(id, amount);
-        }
-        else if(amount < 1)
-        {
-            System.out.println("\n-------------------------------------");
-            System.out.println("Error: Please enter a positive amount");
-            System.out.println("-------------------------------------");
-        }
+        amount = Integer.parseInt(quantity);
+    }
+    
+    /**
+     * Deliver a product's stock to the stock manager.
+     */
+    private void deliverProduct()  
+    {
+        getDeliverInput();
+        manager.deliverProduct(id, amount);
     }
 
     /**
@@ -179,42 +192,16 @@ public class StockApp
 
         System.out.println("\nPlease enter the item ID");
         String value = reader.getInput();
-        int id = Integer.parseInt(value);
+        id = Integer.parseInt(value);
 
         System.out.println("Please enter the item name");
-        String name = reader.getInput();
+        name = reader.getInput();
 
         System.out.println("Please enter the quantity to sell ");
-        String amount = reader.getInput();
-        int quantity = Integer.parseInt(amount);
+        String quantity = reader.getInput();
+        int amount = Integer.parseInt(quantity);
 
-        Product product = new Product(id, name);
-        if(quantity < product.getQuantity())
-        {
-            System.out.println("Sold " + quantity + " item/s of product " + 
-            id + ": " + name);
-
-            System.out.println();
-            manager.sellProduct(id, quantity);
-        }
-        else if(quantity < 0)
-        {
-            System.out.println("\n-------------------------------------");
-            System.out.println("Error: Please enter a positive amount");
-            System.out.println("-------------------------------------");
-        }
-        else if(quantity > product.getQuantity())
-        {
-            System.out.println("\n--------------------------------------------------------------------");
-            System.out.println("Error: Attempt to sell a larger quantity than current stock quantity");
-            System.out.println("--------------------------------------------------------------------");
-        }
-        else if(quantity == 0)
-        {
-            System.out.println("\n-------------------------------");
-            System.out.println("Error: Cannot sell a value of 0");
-            System.out.println("-------------------------------");
-        }
+        manager.sellProduct(id, amount);
     }
 
     /**
@@ -242,6 +229,22 @@ public class StockApp
         manager.printLowStockProducts();
     }
 
+    /**
+     * Prints a list of the products that are low on stock
+     */
+    private void restockAllProducts()
+    {    
+        System.out.println("\nPlease enter the low stock level");
+        String value = reader.getInput();
+        int lowStock = Integer.parseInt(value);
+        
+        System.out.println("\nPlease enter the restock level");
+        String reStock = reader.getInput();
+        int restock = Integer.parseInt(reStock);
+        
+        manager.restockProducts(lowStock, restock);
+    }
+    
     /**
      * Prints all products available.
      */

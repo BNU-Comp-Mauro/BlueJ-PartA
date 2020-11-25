@@ -1,14 +1,14 @@
-    
 /**
- * Write a description of class Program here.
+ * This class is responsible for running the program.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * Modified by Mauro Duarte Nunes
+ * 21815118
+ * 08/11/2020
  */
 public class Program
 {
     private static StockApp app;
-
+    
     /**
      * This class creates and runs an instance of
      * the StockApp class

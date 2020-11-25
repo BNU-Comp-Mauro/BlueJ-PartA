@@ -62,25 +62,34 @@ public class StockManager
     /**
      * Receive a delivery of a particular product.
      * Increase the quantity of the product by the given amount.
-     * @param id The ID of the product.
-     * @param amount The amount to increase the quantity by.
      */
     public void deliverProduct(int id, int amount)
     {
         Product product = findProduct(id);
 
-        if(product != null)
+        if(product != null && amount > 0)
         {
-            product.deliver(amount); 
+            System.out.println("Delivered " + amount + " item/s of product " + id + ": " + 
+                product.getName());
+
+            product.deliver(amount);
         }
-        else
+        else if(amount <= 0)
         {
-            System.out.println("Invalid Product ID: " + id);
+            System.out.println("\n----------------------------------------------");
+            System.out.println("Error: Cannot deliver 0 or negative quantities");
+            System.out.println("----------------------------------------------");
+        }
+        else if(product == null)
+        {
+            System.out.println("\n--------------------------------------------");
+            System.out.println("Error: Product ID: " + id + " does not exist");
+            System.out.println("--------------------------------------------");
         }    
     }
 
     /**
-      * Print details of the given product. If found,
+     * Print details of the given product. If found,
      * its name and stock quantity will be shown.
      */
     public void printProduct(int id)
@@ -110,28 +119,41 @@ public class StockManager
     }
 
     /**
-     * Sell one of the given item.
+     * Sell a certain amount of a product.
      * Show the before and after status of the product.
      */
-    public void sellProduct(int id, int quantity)
+    public void sellProduct(int id, int amount)
     {
         Product product = findProduct(id);
 
         if(product != null) 
         {
-            if(quantity > product.getQuantity()) 
+            if(amount <= 0)
             {
-                quantity = product.getQuantity();
+                System.out.println("\n---------------------------------------");
+                System.out.println("Error: Cannot sell 0 or negative amount");
+                System.out.println("---------------------------------------");
             }
-
-            printProduct(id);
-
-            for(int count = 0; count < quantity; count++)
+            else if(amount > product.getQuantity()) 
             {
-                product.sellAmount();
+                System.out.println("\n-----------------------------------------------------------");
+                System.out.println("Error: Attempt to sell a larger quantity than current stock");
+                System.out.println("-----------------------------------------------------------");
             }
+            else
+            {
+                System.out.println("\nSold " + amount + 
+                    " item/s of product " + product.getID() + ": " + product.getName());
 
-            printProduct(id);
+                printProduct(id);
+
+                for(int count = 0; count < amount; count++)
+                {
+                    product.sellAmount();
+                }
+
+                printProduct(id);
+            }
         }
     }
 
@@ -161,6 +183,22 @@ public class StockManager
             if(product.getQuantity() <= 1)
             {
                 System.out.println(product);
+            }
+        }
+    }
+
+    /**
+     * Print alert for items low on stock.
+     */
+    public void restockProducts(int lowStockLevel, int restockLevel)
+    {
+        for(Product product : stock)
+        {
+            if(product.getQuantity() < lowStockLevel)
+            {
+                product.deliver(restockLevel);
+                System.out.println(product.getName() + " Low Stock");
+                System.out.println("Has been restocked to " + restockLevel);
             }
         }
     }
