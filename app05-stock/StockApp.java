@@ -14,6 +14,7 @@ public class StockApp
     private InputReader reader;
     private StockManager manager;
     private StockDemo oldStock;
+    private Product product;
 
     /**
      * Constructor for objects of class StockApp
@@ -180,26 +181,39 @@ public class StockApp
         String value = reader.getInput();
         int id = Integer.parseInt(value);
 
-        System.out.println("\nPlease enter the item name");
+        System.out.println("Please enter the item name");
         String name = reader.getInput();
 
-        System.out.println("\nPlease enter the quantity to sell ");
-        String amount = reader.getInput(); 
+        System.out.println("Please enter the quantity to sell ");
+        String amount = reader.getInput();
         int quantity = Integer.parseInt(amount);
 
-        if(quantity > 0)
+        Product product = new Product(id, name);
+        if(quantity < product.getQuantity())
         {
-            Product product = new Product(id, name);
-            System.out.println("\nSold " + quantity + " item/s of product " + 
-                id + ": " + name);
+            System.out.println("Sold " + quantity + " item/s of product " + 
+            id + ": " + name);
 
+            System.out.println();
             manager.sellProduct(id, quantity);
         }
-        else
+        else if(quantity < 0)
         {
             System.out.println("\n-------------------------------------");
             System.out.println("Error: Please enter a positive amount");
             System.out.println("-------------------------------------");
+        }
+        else if(quantity > product.getQuantity())
+        {
+            System.out.println("\n--------------------------------------------------------------------");
+            System.out.println("Error: Attempt to sell a larger quantity than current stock quantity");
+            System.out.println("--------------------------------------------------------------------");
+        }
+        else if(quantity == 0)
+        {
+            System.out.println("\n-------------------------------");
+            System.out.println("Error: Cannot sell a value of 0");
+            System.out.println("-------------------------------");
         }
     }
 
@@ -223,6 +237,8 @@ public class StockApp
      */
     private void printLowStockProducts()
     {
+        System.out.println("\nThe following products are low on stock:");
+        System.out.println();
         manager.printLowStockProducts();
     }
 

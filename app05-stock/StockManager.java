@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class StockManager
 {
-    // A list of the products.
     private ArrayList<Product> stock;
 
     /**
@@ -81,9 +80,8 @@ public class StockManager
     }
 
     /**
-     * Print details of the given product. If found,
+      * Print details of the given product. If found,
      * its name and stock quantity will be shown.
-     * @param id The ID of the product to look for.
      */
     public void printProduct(int id)
     {
@@ -138,30 +136,19 @@ public class StockManager
     }
 
     /**
-     * Rename a given product based on its id.
-     */
-    public void renameProduct(int id, String name)
-    {
-
-    }
-
-    /**
      * Print a product according to parts of its name.
      */
     public void searchProduct(String name)
-    {
+    {   
         for(Product product: stock)
         {
-            if(product.getName().contains(name))
+            if(product.getName().toLowerCase().contains(name))
             {
                 System.out.println(product.toString());
             }
-            else
-            {
-                System.out.println("There are no products containing this keyword");
-            }
+            //System.out.println("There are no products containing the 
+            //keyword" + "'" + name + "'");
         }
-        //TO COMPLETE - LOOPS TOO MUCH//
     }
 
     /**
@@ -169,8 +156,6 @@ public class StockManager
      */
     public void printLowStockProducts()
     {
-        System.out.println("\nThe following products are low on stock:");
-        System.out.println();
         for(Product product: stock)
         {
             if(product.getQuantity() <= 1)
