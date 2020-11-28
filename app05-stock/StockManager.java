@@ -11,7 +11,6 @@ public class StockManager
 {
     private ArrayList<Product> stock;
     private Product product;
-
     /**
      * Initialise the stock manager.
      */
@@ -25,7 +24,18 @@ public class StockManager
      */
     public void addProduct(Product product)
     {
-        stock.add(product);
+        if(product.getName().isBlank())
+        {
+            System.err.println("Product name cannot be empty");
+        }
+        else if(1 == 2) //replace
+        {
+            System.err.println("Product ID already exists");
+        }
+        else
+        {
+            stock.add(product);
+        }
     }
 
     /**
@@ -96,8 +106,8 @@ public class StockManager
             else
             {
                 System.out.println("\nSold " + amount + 
-                " item/s of product " + product.getID() + ": " +
-                product.getName());
+                    " item/s of product " + product.getID() + ": " +
+                    product.getName());
 
                 printProduct(id);
 
@@ -110,7 +120,7 @@ public class StockManager
             }
         }
     }
-    
+
     /**
      * Print a product according to part of its name.
      */
@@ -126,7 +136,7 @@ public class StockManager
             //keyword" + "'" + name + "'");
         }
     }
-    
+
     /**
      * Print alert for products low on stock.
      */
@@ -148,20 +158,20 @@ public class StockManager
     public void restockProducts(int lowStockLevel, int restockLevel)
     {
         System.out.println("\nThe following products were restocked by " + restockLevel + 
-        ":");
+            ":");
         System.out.println();
         for(Product product : stock)
         {
             if(product.getQuantity() <= lowStockLevel)
             {
                 System.out.println(product.getID() + 
-                ": " + product.getName() + " [Stock Level: " + 
-                (product.getQuantity() + restockLevel) + "]");
+                    ": " + product.getName() + " [Stock Level: " + 
+                    (product.getQuantity() + restockLevel) + "]");
                 product.deliver(restockLevel);
             }
         }
     }
-    
+
     /**
      * Print details of all the products.
      */
@@ -177,7 +187,7 @@ public class StockManager
             System.out.println(product);
         }
     }
-    
+
     /**
      * Try to find a product in the stock with the given id.
      * Return the identified product, or null if there is none
@@ -195,7 +205,7 @@ public class StockManager
 
         return null;
     }
-    
+
     /**
      * Print details of the given product. If found,
      * its name and stock quantity will be shown.
