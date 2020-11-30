@@ -22,6 +22,7 @@ public class Product
         this.id = id;
         this.name = name;
         this.restockLevel = restockLevel;
+        this.quantity = quantity;
         restockLevel = 5;
     }
 

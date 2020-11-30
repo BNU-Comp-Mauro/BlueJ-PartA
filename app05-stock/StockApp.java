@@ -153,8 +153,6 @@ public class StockApp
         name = reader.getInput();
 
         Product product = new Product(id, name);
-        System.out.println("Removed an existing product " 
-            + product.getID() + ": " + product.getName());
 
         manager.removeProduct(product);
     }
@@ -194,9 +192,6 @@ public class StockApp
         System.out.println("\nPlease enter the item ID");
         String value = reader.getInput();
         id = Integer.parseInt(value);
-
-        System.out.println("Please enter the item name");
-        name = reader.getInput();
 
         System.out.println("Please enter the quantity to sell ");
         String quantity = reader.getInput();

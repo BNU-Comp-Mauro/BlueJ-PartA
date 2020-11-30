@@ -11,12 +11,15 @@ public class StockManager
 {
     private ArrayList<Product> stock;
     private Product product;
+    private StockDemo oldStock;
+
     /**
      * Initialise the stock manager.
      */
     public StockManager()
     {
         stock = new ArrayList<>();
+        this.product = product;
     }
 
     /**
@@ -24,18 +27,7 @@ public class StockManager
      */
     public void addProduct(Product product)
     {
-        if(product.getName().isBlank())
-        {
-            System.err.println("Product name cannot be empty");
-        }
-        else if(1 == 2) //replace
-        {
-            System.err.println("Product ID already exists");
-        }
-        else
-        {
-            stock.add(product);
-        }
+        stock.add(product);
     }
 
     /**
@@ -47,6 +39,8 @@ public class StockManager
         {
             if(stock.get(i).getName().equalsIgnoreCase(product.getName()))
             {
+                System.out.println("Removed an existing product " 
+                    + product.getID() + ": " + product.getName());
                 stock.remove(i);
             }
         }
@@ -132,8 +126,6 @@ public class StockManager
             {
                 System.out.println(product.toString());
             }
-            //System.out.println("There are no products containing the 
-            //keyword" + "'" + name + "'");
         }
     }
 
