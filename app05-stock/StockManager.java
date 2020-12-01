@@ -31,28 +31,44 @@ public class StockManager
      */
     public void addProduct(Product product)
     {
-        stock.add(product);
+        if(product != null)
+        {
+            if(product.getName().isBlank())
+            {
+                System.out.println("\n----------------------------");
+                System.out.println("Product name cannot be blank");
+                System.out.println("----------------------------");
+            }
+            else
+            {
+                System.out.println("Added new product " + product);
+                stock.add(product);
+            }
+        }
+        else
+        {
+            System.out.println("Duplicate ID");
+        }
     }
 
     /**
      * Remove a product from the list.
      */
-    public void removeProduct(Product product)
+    public void removeProduct(int id)
     {
-        for(int i = 0; i < stock.size(); i++)
+        Product product = findProduct(id);
+        if(product != null)
         {
-            if(stock.get(i).getID() == product.getID())
-            {
-                System.out.println("Removed an existing product " 
+            System.out.println("Removed an existing product " 
                     + product);
-                stock.remove(i);
-            }
-            else
-            {
-                System.out.println("Product ID does not exist");
-                break;
-            }
-        } 
+            stock.remove(product);
+        }
+        else
+        {
+            System.out.println("\n--------------------------------");
+            System.out.println("Error: Product ID does not exist");
+            System.out.println("--------------------------------");
+        }
     }
 
     /**

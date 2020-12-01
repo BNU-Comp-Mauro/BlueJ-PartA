@@ -133,7 +133,6 @@ public class StockApp
         name = reader.getInput();
 
         Product product = new Product(id, name);
-        System.out.println("Added new product " + product);
 
         manager.addProduct(product);
     }
@@ -154,7 +153,7 @@ public class StockApp
         
         Product product = new Product(id, name);
 
-        manager.removeProduct(product);
+        manager.removeProduct(id);
     }
     
     /**
