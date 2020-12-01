@@ -96,7 +96,7 @@ public class StockManager
         else if(product == null)
         {
             System.out.println("\n--------------------------------------------");
-            System.out.println("Error: Product ID: " + id + " does not exist");
+            System.out.println("Error: Product ID " + id + " does not exist");
             System.out.println("--------------------------------------------");
         }    
     }

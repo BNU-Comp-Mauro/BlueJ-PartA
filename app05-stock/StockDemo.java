@@ -8,20 +8,20 @@ import java.util.Random;
  * 21815118
  * 08/11/2020
  */
-public class StockDemo
+public class StockDemo 
 {
     // The stock manager.
-    private StockManager manager;
+    private StockManager manager;  
     
     private Random randomGenerator;
 
     /**
      * Create a StockManager and populate it with a few
-     * sample products.
+     * sample products. 
      */
-    public StockDemo(StockManager manager)
+    public StockDemo(StockManager manager)  
     {
-        this.manager = manager;
+        this.manager = manager; 
         randomGenerator = new Random();
         
         manager.addProduct(new Product(101, "Tesla Model S"));
@@ -40,7 +40,7 @@ public class StockDemo
     /**
      * This method runs all the tests necessary to demonstrate that every
      * requirement has been met.
-     */
+     */ 
     public void runDemo()
     {
         manager.printAllProducts();
@@ -54,10 +54,10 @@ public class StockDemo
     
     /**
      * Provide a very simple demonstration of how a StockManager
-     * might be used. Details of one product are shown, the
+     * might be used. Details of one product are shown, the 
      * product is restocked, and then the details are shown again.
      */
-    private void demoDeliverProducts()
+    private void demoDeliverProducts()  
     {
         int quantity = 0;
         
@@ -73,7 +73,7 @@ public class StockDemo
      * might be used. Details of one product are shown, the
      * product is restocked, and then the details are shown again.
      */
-    private void demoSellProducts()
+    private void demoSellProducts() 
     {
         int quantity = 0;
         

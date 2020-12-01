@@ -37,7 +37,7 @@ public class StockApp
         reader = new InputReader();
         manager = new StockManager();
         oldStock = new StockDemo(manager);
-        product = new Product(id, name);
+        this.product = product;
         this.id = id;
         this.amount = amount;
         this.name = name;
@@ -226,6 +226,7 @@ public class StockApp
     {
         System.out.println("\nThe following products are low on stock:");
 
+        Product product = new Product(id, name);
         int lowStockLevel = product.getLowStockLevel();
         manager.printLowStockProducts(lowStockLevel);
     }
@@ -273,7 +274,7 @@ public class StockApp
 
     /**
      * Print the title of the program and the authors name.
-     */
+     */         
     private void printHeading()
     {
         System.out.println("\n******************************");
