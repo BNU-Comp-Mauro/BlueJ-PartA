@@ -151,12 +151,12 @@ public class StockApp
 
         System.out.println("Please enter the product name ");
         name = reader.getInput();
-
+        
         Product product = new Product(id, name);
 
         manager.removeProduct(product);
     }
-
+    
     /**
      * User input for deliverProduct method.
      */

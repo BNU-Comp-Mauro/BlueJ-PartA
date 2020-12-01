@@ -11,6 +11,8 @@ public class StockManager
 {
     private ArrayList<Product> stock;
     private Product product;
+    private int id;
+    private String name;
     private StockDemo oldStock;
 
     /**
@@ -18,8 +20,10 @@ public class StockManager
      */
     public StockManager()
     {
-        stock = new ArrayList<>();
-        this.product = product;
+        stock = new ArrayList<Product>();
+        this.id = id;
+        product = new Product(id, name);
+        this.name = name;
     }
 
     /**
@@ -37,13 +41,18 @@ public class StockManager
     {
         for(int i = 0; i < stock.size(); i++)
         {
-            if(stock.get(i).getName().equalsIgnoreCase(product.getName()))
+            if(stock.get(i).getID() == product.getID())
             {
                 System.out.println("Removed an existing product " 
-                    + product.getID() + ": " + product.getName());
+                    + product);
                 stock.remove(i);
             }
-        }
+            else
+            {
+                System.out.println("Product ID does not exist");
+                break;
+            }
+        } 
     }
 
     /**
