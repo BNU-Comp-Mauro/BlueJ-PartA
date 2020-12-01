@@ -37,7 +37,7 @@ public class StockApp
         reader = new InputReader();
         manager = new StockManager();
         oldStock = new StockDemo(manager);
-        this.product = product;
+        product = new Product(id, name);
         this.id = id;
         this.amount = amount;
         this.name = name;
@@ -119,9 +119,9 @@ public class StockApp
     }
 
     /**
-     * Add a product to the stock manager.
+     * User input for addProduct method.
      */
-    private void addProduct()
+    private void getAddInput()
     {
         System.out.println("Adding a new product");
 
@@ -131,16 +131,22 @@ public class StockApp
 
         System.out.println("Please enter the product name");
         name = reader.getInput();
+    }
 
-        Product product = new Product(id, name);
-
+    /**
+     * Add a product to the stock manager.
+     */
+    private void addProduct()
+    {
+        getAddInput();
+        product = new Product(id, name);
         manager.addProduct(product);
     }
 
     /**
-     * Remove a product from the stock manager.
+     * User input for removeProduct method.
      */
-    private void removeProduct()  
+    private void getRemoveInput()
     {
         System.out.println("Removing an existing product");
 
@@ -150,12 +156,18 @@ public class StockApp
 
         System.out.println("Please enter the product name ");
         name = reader.getInput();
-        
-        Product product = new Product(id, name);
+    }
 
+    /**
+     * Remove a product from the stock manager.
+     */
+    private void removeProduct()  
+    {
+        getRemoveInput();
+        product = new Product(id, name);
         manager.removeProduct(id);
     }
-    
+
     /**
      * User input for deliverProduct method.
      */
@@ -187,7 +199,7 @@ public class StockApp
     private void getSellInput()
     {
         System.out.println("\nSelling an item");
-        
+
         System.out.println("\nPlease enter the item ID");
         String value = reader.getInput();
         id = Integer.parseInt(value);
@@ -226,7 +238,6 @@ public class StockApp
     {
         System.out.println("\nThe following products are low on stock:");
 
-        Product product = new Product(id, name);
         int lowStockLevel = product.getLowStockLevel();
         manager.printLowStockProducts(lowStockLevel);
     }

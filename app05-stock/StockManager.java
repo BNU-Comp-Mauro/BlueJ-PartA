@@ -39,9 +39,9 @@ public class StockManager
             }
             else if(product.getName().isBlank())
             {
-                System.out.println("\n----------------------------");
-                System.out.println("Product name cannot be blank");
-                System.out.println("----------------------------");
+                System.out.println("\n-----------------------------------");
+                System.out.println("Error: Product name cannot be blank");
+                System.out.println("-----------------------------------");
             }
 
             else
@@ -96,7 +96,7 @@ public class StockManager
         else if(product == null)
         {
             System.out.println("\n--------------------------------------------");
-            System.out.println("Error: Product ID " + id + " does not exist");
+            System.out.println("Error: Product ID: " + id + " does not exist");
             System.out.println("--------------------------------------------");
         }    
     }
