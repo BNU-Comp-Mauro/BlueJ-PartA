@@ -33,21 +33,22 @@ public class StockManager
     {
         if(product != null)
         {
-            if(product.getName().isBlank())
+            if(stock.contains(id))
+            {
+                System.out.println("Duplicate ID");
+            }
+            else if(product.getName().isBlank())
             {
                 System.out.println("\n----------------------------");
                 System.out.println("Product name cannot be blank");
                 System.out.println("----------------------------");
             }
+
             else
             {
                 System.out.println("Added new product " + product);
                 stock.add(product);
             }
-        }
-        else
-        {
-            System.out.println("Duplicate ID");
         }
     }
 
@@ -60,7 +61,7 @@ public class StockManager
         if(product != null)
         {
             System.out.println("Removed an existing product " 
-                    + product);
+                + product);
             stock.remove(product);
         }
         else
