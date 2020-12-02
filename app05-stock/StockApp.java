@@ -70,7 +70,7 @@ public class StockApp
             if(choice.equals(QUIT_PROGRAM))
             {
                 System.out.println("Shutting down...");
-                System.out.println("See you soon!");
+                System.out.println("Goodbye!");
                 finished = true;
             }
             else

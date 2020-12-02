@@ -1,0 +1,192 @@
+Program.main();
+
+******************************
+ Stock Management Application 
+ App05: by Mauro Duarte Nunes 
+******************************
+
+    Add:        Add a new product
+    Remove:     Remove an existing product
+    Deliver:    Deliver stock to a product
+    Sell:       Sell a product
+    Search:     Search for a product based on part of its name
+    LowStock:   Print a list of low on stock products 
+    Restock:    Restock low on stock products by a set amount
+    PrintAll:   Print all products
+    Quit:       Quit the program
+
+> add
+Adding a new product
+
+Please enter the product ID
+> 101
+Please enter the product name
+> GTA V
+Added new product 101: GTA V [Stock Level: 0]
+
+******************************
+ Stock Management Application 
+ App05: by Mauro Duarte Nunes 
+******************************
+
+    Add:        Add a new product
+    Remove:     Remove an existing product
+    Deliver:    Deliver stock to a product
+    Sell:       Sell a product
+    Search:     Search for a product based on part of its name
+    LowStock:   Print a list of low on stock products 
+    Restock:    Restock low on stock products by a set amount
+    PrintAll:   Print all products
+    Quit:       Quit the program
+
+> add
+Adding a new product
+
+Please enter the product ID
+> 102
+Please enter the product name
+> NBA 2K21
+Added new product 102: NBA 2K21 [Stock Level: 0]
+
+******************************
+ Stock Management Application 
+ App05: by Mauro Duarte Nunes 
+******************************
+
+    Add:        Add a new product
+    Remove:     Remove an existing product
+    Deliver:    Deliver stock to a product
+    Sell:       Sell a product
+    Search:     Search for a product based on part of its name
+    LowStock:   Print a list of low on stock products 
+    Restock:    Restock low on stock products by a set amount
+    PrintAll:   Print all products
+    Quit:       Quit the program
+
+> add
+Adding a new product
+
+Please enter the product ID
+> 103
+Please enter the product name
+> Madden NFL 21
+Added new product 103: Madden NFL 21 [Stock Level: 0]
+
+******************************
+ Stock Management Application 
+ App05: by Mauro Duarte Nunes 
+******************************
+
+    Add:        Add a new product
+    Remove:     Remove an existing product
+    Deliver:    Deliver stock to a product
+    Sell:       Sell a product
+    Search:     Search for a product based on part of its name
+    LowStock:   Print a list of low on stock products 
+    Restock:    Restock low on stock products by a set amount
+    PrintAll:   Print all products
+    Quit:       Quit the program
+
+> add
+Adding a new product
+
+Please enter the product ID
+> 104
+Please enter the product name
+> Watch Dogs Legion
+Added new product 104: Watch Dogs Legion [Stock Level: 0]
+
+******************************
+ Stock Management Application 
+ App05: by Mauro Duarte Nunes 
+******************************
+
+    Add:        Add a new product
+    Remove:     Remove an existing product
+    Deliver:    Deliver stock to a product
+    Sell:       Sell a product
+    Search:     Search for a product based on part of its name
+    LowStock:   Print a list of low on stock products 
+    Restock:    Restock low on stock products by a set amount
+    PrintAll:   Print all products
+    Quit:       Quit the program
+
+> add
+Adding a new product
+
+Please enter the product ID
+> 105
+Please enter the product name
+> FIFA 21
+Added new product 105: FIFA 21 [Stock Level: 0]
+
+******************************
+ Stock Management Application 
+ App05: by Mauro Duarte Nunes 
+******************************
+
+    Add:        Add a new product
+    Remove:     Remove an existing product
+    Deliver:    Deliver stock to a product
+    Sell:       Sell a product
+    Search:     Search for a product based on part of its name
+    LowStock:   Print a list of low on stock products 
+    Restock:    Restock low on stock products by a set amount
+    PrintAll:   Print all products
+    Quit:       Quit the program
+
+> add
+Adding a new product
+
+Please enter the product ID
+> 105
+Please enter the product name
+> GTA Vice City
+
+------------------------------------
+Error: Product ID 105 already in use
+------------------------------------
+
+******************************
+ Stock Management Application 
+ App05: by Mauro Duarte Nunes 
+******************************
+
+    Add:        Add a new product
+    Remove:     Remove an existing product
+    Deliver:    Deliver stock to a product
+    Sell:       Sell a product
+    Search:     Search for a product based on part of its name
+    LowStock:   Print a list of low on stock products 
+    Restock:    Restock low on stock products by a set amount
+    PrintAll:   Print all products
+    Quit:       Quit the program
+
+> add
+Adding a new product
+
+Please enter the product ID
+> 106
+Please enter the product name
+> 
+
+-----------------------------------
+Error: Product name cannot be blank
+-----------------------------------
+
+******************************
+ Stock Management Application 
+ App05: by Mauro Duarte Nunes 
+******************************
+
+    Add:        Add a new product
+    Remove:     Remove an existing product
+    Deliver:    Deliver stock to a product
+    Sell:       Sell a product
+    Search:     Search for a product based on part of its name
+    LowStock:   Print a list of low on stock products 
+    Restock:    Restock low on stock products by a set amount
+    PrintAll:   Print all products
+    Quit:       Quit the program
+
+> 

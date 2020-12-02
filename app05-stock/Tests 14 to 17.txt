@@ -1,99 +1,4 @@
-
-******************************
- Stock Management Application 
- App05: by Mauro Duarte Nunes 
-******************************
-
-    Add:        Add a new product
-    Remove:     Remove an existing product
-    Deliver:    Deliver stock to a product
-    Sell:       Sell a product
-    Search:     Search for a product based on part of its name
-    LowStock:   Print a list of low on stock products 
-    Restock:    Restock low on stock products by a set amount
-    PrintAll:   Print all products
-    Quit:       Quit the program
-
-> deliver
-Delivering a product
-
-Please enter the product ID
-> 104
-Please enter the amount to be delivered 
-> 8
-Delivered 8 item/s of product 104: Watch Dogs Legion
-
-******************************
- Stock Management Application 
- App05: by Mauro Duarte Nunes 
-******************************
-
-    Add:        Add a new product
-    Remove:     Remove an existing product
-    Deliver:    Deliver stock to a product
-    Sell:       Sell a product
-    Search:     Search for a product based on part of its name
-    LowStock:   Print a list of low on stock products 
-    Restock:    Restock low on stock products by a set amount
-    PrintAll:   Print all products
-    Quit:       Quit the program
-
-> deliver
-Delivering a product
-
-Please enter the product ID
-> 104
-Please enter the amount to be delivered 
-> -4
-
-----------------------------------------------
-Error: Cannot deliver 0 or negative quantities
-----------------------------------------------
-
-******************************
- Stock Management Application 
- App05: by Mauro Duarte Nunes 
-******************************
-
-    Add:        Add a new product
-    Remove:     Remove an existing product
-    Deliver:    Deliver stock to a product
-    Sell:       Sell a product
-    Search:     Search for a product based on part of its name
-    LowStock:   Print a list of low on stock products 
-    Restock:    Restock low on stock products by a set amount
-    PrintAll:   Print all products
-    Quit:       Quit the program
-
-> sell
-
-Selling an item
-
-Please enter the item ID
-> 104
-Please enter the quantity to sell 
-> 2
-
-Sold 2 item/s of product 104: Watch Dogs Legion
-104: Watch Dogs Legion [Stock Level: 8]
-104: Watch Dogs Legion [Stock Level: 6]
-
-******************************
- Stock Management Application 
- App05: by Mauro Duarte Nunes 
-******************************
-
-    Add:        Add a new product
-    Remove:     Remove an existing product
-    Deliver:    Deliver stock to a product
-    Sell:       Sell a product
-    Search:     Search for a product based on part of its name
-    LowStock:   Print a list of low on stock products 
-    Restock:    Restock low on stock products by a set amount
-    PrintAll:   Print all products
-    Quit:       Quit the program
-
-> sell
+sell
 
 Selling an item
 
@@ -128,7 +33,7 @@ Selling an item
 Please enter the item ID
 > 104
 Please enter the quantity to sell 
-> -12
+> -2
 
 ---------------------------------------
 Error: Cannot sell 0 or negative amount
@@ -175,7 +80,7 @@ Please enter a keyword
 
 The following products are low on stock:
 
-101: GTA San Andreas [Stock Level: 0]
+101: GTA V [Stock Level: 0]
 102: NBA 2K21 [Stock Level: 0]
 103: Madden NFL 21 [Stock Level: 0]
 
