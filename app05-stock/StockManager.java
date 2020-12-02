@@ -115,7 +115,9 @@ public class StockManager
             }
             else if(amount > product.getQuantity()) 
             {
-                product.getQuantity();
+                System.out.println("\n------------------------------------------------------");
+                System.out.println("Error: Cannot sell amount bigger than product quantity");
+                System.out.println("------------------------------------------------------");
             }
             else
             {
