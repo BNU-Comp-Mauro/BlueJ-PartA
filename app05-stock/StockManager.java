@@ -33,11 +33,7 @@ public class StockManager
     {
         if(product != null)
         {
-            if(stock.contains(id))
-            {
-                System.out.println("Duplicate ID");
-            }
-            else if(product.getName().isBlank())
+            if(product.getName().isBlank())
             {
                 System.out.println("\n-----------------------------------");
                 System.out.println("Error: Product name cannot be blank");
@@ -119,9 +115,7 @@ public class StockManager
             }
             else if(amount > product.getQuantity()) 
             {
-                System.out.println("\n-----------------------------------------------------------");
-                System.out.println("Error: Attempt to sell a larger quantity than current stock");
-                System.out.println("-----------------------------------------------------------");
+                product.getQuantity();
             }
             else
             {

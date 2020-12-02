@@ -69,6 +69,8 @@ public class StockApp
 
             if(choice.equals(QUIT_PROGRAM))
             {
+                System.out.println("Shutting down...");
+                System.out.println("See you soon!");
                 finished = true;
             }
             else
@@ -116,6 +118,12 @@ public class StockApp
         {
             printAllProducts();
         }
+        else
+        {
+            System.out.println("\n----------------------------------");
+            System.out.println("Error: Please enter a valid choice");
+            System.out.println("----------------------------------");
+        }
     }
 
     /**
@@ -139,8 +147,17 @@ public class StockApp
     private void addProduct()
     {
         getAddInput();
-        product = new Product(id, name);
-        manager.addProduct(product);
+        if(manager.findProduct(id) == null)
+        {
+            Product product = new Product(id, name);
+            manager.addProduct(product);
+        }
+        else
+        {
+            System.out.println("\n------------------------------------");
+            System.out.println("Error: Product ID " + id + " already in use");
+            System.out.println("------------------------------------");
+        }
     }
 
     /**
