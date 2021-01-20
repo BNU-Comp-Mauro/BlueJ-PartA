@@ -38,5 +38,4 @@ public class Ticket
         System.out.println(" Issued @ " + dateTime);
         System.out.println();
     }
-    
 }
